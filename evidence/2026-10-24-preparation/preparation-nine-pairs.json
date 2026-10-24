@@ -1,0 +1,159 @@
+{
+  "status": "NINE_CPU_PREPARATION_PAIRS_EXACT",
+  "blocks": [
+    {
+      "id": "selected-read-preparation-mi50-r1-v1",
+      "baseline": 62.25707225299266,
+      "candidate": 10.604777364991605,
+      "ratio": 5.870662825842543,
+      "report_sha256": "9cdb964585720d4be1c9bac07bcee5fcaae65029099b6dd23098e0469a6866c8",
+      "central_receipt": {
+        "id": "selected-read-preparation-mi50-r1-v1",
+        "digest": "e62891cf7fb9c62940ed3dcd82169fe9128fd57c877626a3b256e56be5169057",
+        "started": 1792832479.7098334,
+        "ended": 1792832554.7866554,
+        "validated": true,
+        "returncode": 0
+      },
+      "descriptor_sha256": "e62891cf7fb9c62940ed3dcd82169fe9128fd57c877626a3b256e56be5169057"
+    },
+    {
+      "id": "selected-read-preparation-mi50-r2-v1",
+      "baseline": 63.27597902699199,
+      "candidate": 10.607268252002541,
+      "ratio": 5.965341643457179,
+      "report_sha256": "8cfca3a523096359da412ddd403558f2397119fc876715408ec531967db3339a",
+      "central_receipt": {
+        "id": "selected-read-preparation-mi50-r2-v1",
+        "digest": "1ed7b4e409ac0676f24259e56d0dcd76f180cce2215d644985c5d50950f346ea",
+        "started": 1792832567.8136542,
+        "ended": 1792832646.7379808,
+        "validated": true,
+        "returncode": 0
+      },
+      "descriptor_sha256": "1ed7b4e409ac0676f24259e56d0dcd76f180cce2215d644985c5d50950f346ea"
+    },
+    {
+      "id": "selected-read-preparation-mi50-r3-v1",
+      "baseline": 60.250364715990145,
+      "candidate": 10.61343695699179,
+      "ratio": 5.676800546339435,
+      "report_sha256": "b9b2093f5324c597685a84cfce98d91ca7bad0cecfa7142c5efb5a42a6f8c006",
+      "central_receipt": {
+        "id": "selected-read-preparation-mi50-r3-v1",
+        "digest": "a968c321da808a8514a52c0d959a0e8e11cc000a6ff404f112cd108b3f6171ea",
+        "started": 1792832655.563863,
+        "ended": 1792832729.2313955,
+        "validated": true,
+        "returncode": 0
+      },
+      "descriptor_sha256": "a968c321da808a8514a52c0d959a0e8e11cc000a6ff404f112cd108b3f6171ea"
+    },
+    {
+      "id": "selected-read-preparation-r9700-r1-v1",
+      "baseline": 63.315070343000116,
+      "candidate": 10.603010346007068,
+      "ratio": 5.971423989682666,
+      "report_sha256": "9fad301facc1f8706c70516522e84c786ca98606633ebc1998144d3a489d7ad2",
+      "central_receipt": {
+        "id": "selected-read-preparation-r9700-r1-v1",
+        "digest": "997a27d36f340c8220e01360c07dd53d60950c76af5733af8a9dcd7fc3bd6bdc",
+        "started": 1792832741.33482,
+        "ended": 1792832818.446049,
+        "validated": true,
+        "returncode": 0
+      },
+      "descriptor_sha256": "997a27d36f340c8220e01360c07dd53d60950c76af5733af8a9dcd7fc3bd6bdc"
+    },
+    {
+      "id": "selected-read-preparation-r9700-r2-v1",
+      "baseline": 59.375879302984686,
+      "candidate": 11.10706355900038,
+      "ratio": 5.345776495072873,
+      "report_sha256": "d6d1e8e724b08e1b2e264ab706d3d028c4a282548671f1a4de881e94496555ca",
+      "central_receipt": {
+        "id": "selected-read-preparation-r9700-r2-v1",
+        "digest": "ec4ebd15f29b056efc301d4840f7c70cc1925eff7a7c12fd48c67cb60395c623",
+        "started": 1792832827.7969024,
+        "ended": 1792832900.6402454,
+        "validated": true,
+        "returncode": 0
+      },
+      "descriptor_sha256": "ec4ebd15f29b056efc301d4840f7c70cc1925eff7a7c12fd48c67cb60395c623"
+    },
+    {
+      "id": "selected-read-preparation-r9700-r3-v1",
+      "baseline": 64.25934033900558,
+      "candidate": 10.60714068300149,
+      "ratio": 6.0581208696500655,
+      "report_sha256": "491d72959bb92eca69876976f934e728be6b6496a3e6f86e00a6d569235569c1",
+      "central_receipt": {
+        "id": "selected-read-preparation-r9700-r3-v1",
+        "digest": "254a9691fa3e6365b0061d04a7d5fa46fa3d52c980b1096dd4fa4d2ad9908e8a",
+        "started": 1792832908.4347048,
+        "ended": 1792832987.5196128,
+        "validated": true,
+        "returncode": 0
+      },
+      "descriptor_sha256": "254a9691fa3e6365b0061d04a7d5fa46fa3d52c980b1096dd4fa4d2ad9908e8a"
+    },
+    {
+      "id": "selected-read-preparation-rtx-r1-v1",
+      "baseline": 61.25810835698212,
+      "candidate": 10.61936133200652,
+      "ratio": 5.768530370310645,
+      "report_sha256": "5a869a7a0d787495b0888911e0b1d6d905bb2069f6a3fe181bb8de92d5acfda9",
+      "central_receipt": {
+        "id": "selected-read-preparation-rtx-r1-v1",
+        "digest": "fe4b7d5bb1fa32a43d7c1659fbcf44ac45d89168099410d0919e050c878617be",
+        "started": 1792832995.440314,
+        "ended": 1792833068.6914954,
+        "validated": true,
+        "returncode": 0
+      },
+      "descriptor_sha256": "fe4b7d5bb1fa32a43d7c1659fbcf44ac45d89168099410d0919e050c878617be"
+    },
+    {
+      "id": "selected-read-preparation-rtx-r2-v1",
+      "baseline": 59.74597549199825,
+      "candidate": 10.602672896013246,
+      "ratio": 5.634991862708843,
+      "report_sha256": "11bf79947877215f9ea0b4e71ba308f5ab6a9611db6e095c7f07a13884a4b063",
+      "central_receipt": {
+        "id": "selected-read-preparation-rtx-r2-v1",
+        "digest": "7d063de8152f735b473a57d929c385aceb0cdeed329c7945cb221f8c287a784e",
+        "started": 1792833077.1020572,
+        "ended": 1792833148.7399857,
+        "validated": true,
+        "returncode": 0
+      },
+      "descriptor_sha256": "7d063de8152f735b473a57d929c385aceb0cdeed329c7945cb221f8c287a784e"
+    },
+    {
+      "id": "selected-read-preparation-rtx-r3-v1",
+      "baseline": 61.57355923499563,
+      "candidate": 10.610949370005983,
+      "ratio": 5.802832252601815,
+      "report_sha256": "869b73bb4f18e48cb21d3ad6c5d7ac4f222249427c0f4d9c4c6249d00846417c",
+      "central_receipt": {
+        "id": "selected-read-preparation-rtx-r3-v1",
+        "digest": "56e92678e24f70c537d967b7223e1bbb332798645e11db7ae83804d1ebe3377c",
+        "started": 1792833156.478216,
+        "ended": 1792833231.605511,
+        "validated": true,
+        "returncode": 0
+      },
+      "descriptor_sha256": "56e92678e24f70c537d967b7223e1bbb332798645e11db7ae83804d1ebe3377c"
+    }
+  ],
+  "median_paired_ratio": 5.802832252601815,
+  "limitations": [
+    "Linux CPU preparation only, warm OS cache",
+    "Observed background controller CPU",
+    "RTX-labelled r1 cross-host transfer overlap12.7328689s",
+    "Native GPU/performance qualification independent; no full-pipeline promotion"
+  ],
+  "aggregate_sha256": "18fa672e215ab307ebb785ce9cf9f0840ed25019705da677b2ca7d357cb50b61",
+  "retrieved_at": 1792856022.285475,
+  "publication_scope": "Scoped preparation observation only; not an isolated-host or GPU/full-pipeline performance qualification."
+}

@@ -1,15 +1,29 @@
-# Speedups
+# Villa pipeline optimization status
 
-My speedups for the pipeline. The open ones are merged together on this branch, on top of main. The new paths are opt-in, so the defaults don't change, and each was checked against main for the same output. Each PR has the full proof and repro commands.
+Updated October 24, 2026. This hub tracks separate changes; it does not establish an end-to-end pipeline speedup. The historical timing headlines previously shown here are withdrawn from current recommendations pending source and concurrency reconciliation. Historical measurements are not being silently replaced with different workloads.
 
-| Stage | Measured | How to use it | PR |
+## Existing pull requests
+
+| Change | Link | Current GitHub status | Evidence status |
 |---|---|---|---|
-| Spiral fit (`spiral-fitting`) | 0.313 → 0.230 s/step on an MI50 (−27%) | `FIT_SPIRAL_SEP_UPSAMPLE=1 FIT_SPIRAL_GRAPH_RK4=1` | [#2212](https://github.com/ScrollPrize/villa/pull/2212) |
-| Track scoring (`spiral-fitting/tracks.py`) | 5.31 → 2.59 s on an RTX 3080 (2.05x), 22.41 → 10.35 s on an MI50 (2.17x) | always on, output unchanged | [#2218](https://github.com/ScrollPrize/villa/pull/2218) (merged into main) |
-| Surface track extraction (`extract_surface_tracks.py`) | 562.8 → 163.8 s and 565.9 → 156.3 s on a 500-slice band (3.4–3.6x), 0 of 192 keys differ | `--backend cpu --cc-device gpu --slab-workers 6 --kimimaro-parallel 1` | [#2221](https://github.com/ScrollPrize/villa/pull/2221) (draft) |
-| Render (`vc_render_tifxyz`, GPU sampling) | median 64.2 → 49.5 s on an MI50 over 20 rounds, output identical to the CPU render | `RENDER_GPU=1` with `render_band.sh` (`scripts/render_gpu`) | [#2225](https://github.com/ScrollPrize/villa/pull/2225) (draft) |
-| Ink inference loading (`infer_full3d_tifxyz`, vc_reader) | 25.8 → 10.7 s for 45 remote Paris 4 patches on an RTX 3080 (2.4x), 36.6 → 18.1 s on a CPU server (2.0x), patches identical | `--reader vc_reader` (needs villa's vc_reader) | [#2226](https://github.com/ScrollPrize/villa/pull/2226) (draft) |
+| Separable upsampling and graph replay | [#2212](https://github.com/ScrollPrize/villa/pull/2212) | Open, non-draft | Existing implementation; no newly qualified performance claim in this update |
+| Track satisfaction scoring | [#2218](https://github.com/ScrollPrize/villa/pull/2218) | Merged | Existing merged change; historical timing not requalified here |
+| GPU connected components and parallel slabs | [#2221](https://github.com/ScrollPrize/villa/pull/2221) | Open, non-draft | Earlier 3.4–3.6× comparison also changed CPU parallelism; not an isolated GPU gain |
+| GPU layer sampling | [#2225](https://github.com/ScrollPrize/villa/pull/2225) | Draft | No new qualified full-stage speedup claimed |
+| Native full-3D vc_reader loading | [#2226](https://github.com/ScrollPrize/villa/pull/2226) | Draft | Separate from rendered-stack Reader 3; old 2.4× headline is not current qualified evidence |
+| Multiple inference processes | [#2213](https://github.com/ScrollPrize/villa/pull/2213) | Open, non-draft | Documentation; existing normalization implementation is not new work here |
+| Fitter constant caching | [#2234](https://github.com/ScrollPrize/villa/pull/2234) | Draft | No newly qualified timing claim in this update |
 
-Related, not a speedup: [#2213](https://github.com/ScrollPrize/villa/pull/2213) documents running several `infer.py` processes per GPU.
+## New preparation experiment — not yet an upstream PR
 
-Track scoring is already in main. It has no flag: it only skips work whose result was thrown away, and its counts were bit-identical under deterministic mode.
+Nine paired Linux CPU preparation tests for two crops each produced exact matching output trees. Baseline sums were 59.376–64.259 seconds; selected-read candidate sums were 10.603–11.107 seconds. Median paired ratio: 5.802832×. [Evidence, per-pair values and limitations](evidence/2026-10-24-preparation/README.md).
+
+Scope: warm OS cache, with observed background controller CPU; one repetition overlapped 12.733 seconds of cross-host transfer. Hardware labels on these preparation jobs identify downstream qualification cohorts, not native GPU timing. This is a scoped component observation, not a clean isolated-host or end-to-end speedup. Do not add or multiply it with other ratios. CPU-only PR readiness requires reproducible CPU correctness and performance evidence, independent cold review, and verified production integration; three-GPU verification does not apply to this CPU-only preparation change.
+
+## Correctness and production progress
+
+Nine model-reuse correctness blocks completed across MI50, R9700 and RTX3080 (three per variety). Performance qualification remains incomplete, including shared-desktop RTX attribution.
+
+108 Scroll 1218 window-8832 inference outputs have successful independent central validation receipts. This is a bounded production-output count, not a claim of 108 new text discoveries or total project production.
+
+Automatic next-window production is being integrated. Sustained four-GPU utilization and two hours of runnable backlog per GPU have not been demonstrated. New-text discovery has not been confirmed.
