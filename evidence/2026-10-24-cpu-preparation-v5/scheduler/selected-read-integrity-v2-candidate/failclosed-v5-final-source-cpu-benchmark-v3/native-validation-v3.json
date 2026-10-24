@@ -1,0 +1,37 @@
+{
+  "status": "PASS_LOCAL_TESTS_AND_NATIVE_READ_ONLY_PREFLIGHT; NOT_SUBMITTED",
+  "launch_authorized": false,
+  "benchmark_started": false,
+  "local_tests": {
+    "command": "python test_paired_runner_v5.py",
+    "result": "4 passed",
+    "native_preflight_syntax": "python -m py_compile native_preflight_v3.py paired_preparation_runner_v5.py"
+  },
+  "native": {
+    "descriptor_host_path": "/mnt/oldpc/vesuvius_park/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3.json",
+    "descriptor_sha256": "14240f506c7e03b8e52f004712ea7adfefca22a6a11bfc9f5064f0981382cf9a",
+    "launch_contract_host_path": "/mnt/oldpc/vesuvius_park/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-launch-contract.json",
+    "launch_contract_sha256": "c736607f02ded3149d85b701221ec9e47013e521f0b70d1fe1d2a5192027a9e7",
+    "descriptor_source_pins": 833,
+    "descriptor_pin_mismatches": 0,
+    "launch_source_pins": 829,
+    "launch_pin_mismatches": 0,
+    "native_preflight_path": "/mnt/oldpc/vesuvius_park/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/native-preflight/native-preflight.json",
+    "native_preflight_sha256": "9f327bd5edd7df01202d9cff01e907ab7e3672dc8d2d8fd87f9a517bd60b9e84",
+    "linker_proof_path": "/mnt/oldpc/vesuvius_park/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/native-preflight/linker-resolution.json",
+    "linker_proof_sha256": "765587b694462f5347cfdb54e3596a786751956e71aa0062fad0a042a80f62ee",
+    "preflight_script_sha256": "d4ab900387e858c02819bb711590f09814f034b527a40ed7272bac1941dd8cad",
+    "candidate_producer_sha256": "8ec9c25525a7f55cfdc3b179c2b0dec2ed16eb1603fe05c196ba2e43df4af2ea",
+    "stock_producer_sha256": "2560ccea384e7c830e45899fa27f22bc8c18be948457581ac7350469bef7e036",
+    "crop_identity_sha256": "51b9c085e002f76ddf6b04f1d9ddde069997153a89dc0faf883dcab862b1c5f8",
+    "library_sha256": "e4287923b8468a157eba6895d82c17a2f00105eeda32a6c9ec6755673b52231d",
+    "renderer_sha256": "1eb7d7248c2e52eb79b8c0c3be0daf02411ffbe7b448600e4356c2435f48561a",
+    "output_root_absent": true,
+    "dependencies_not_revalidated": "central queue terminal-state/schema review remains root-owned"
+  },
+  "evidence": {
+    "postcheck_sha256": "76236fd31d4bda28655832615bed560800da7917faf2126b76b427b3e1a1143d",
+    "production_caller_qualification_sha256": "7a055258e57115efb2182077cb384110f73f243fa2a85c090f3533992f334f87"
+  },
+  "known_correction": "Runner now audits the producer-owned science/selected-read-events.jsonl path and requires selected-read-integrity.json to equal the independent ledger audit. Exact requested_crop_identity_v1 import is pinned."
+}

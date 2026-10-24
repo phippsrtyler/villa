@@ -1,0 +1,88 @@
+{
+  "id": "selected-read-upstream-failclosed-v5-postcheck-v1",
+  "digest": "abd20624ff0c9b3714746327db51fca934352b1c73ea85e19a76a790edeac3b9",
+  "worker": "linux-cpu",
+  "started": 1792865042.3430383,
+  "validated": true,
+  "returncode": 0,
+  "pid": 4184711,
+  "outputs": [
+    {
+      "guard": "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-postcheck-v1/guard.log.json",
+      "receipt": {
+        "pid": 4184715,
+        "owned_pgid": 4184715,
+        "command": [
+          "python3",
+          "-B",
+          "/mnt/oldpc/vesuvius_park/selected-read-v5-postcheck-v1-source/verify_existing_v5_build.py",
+          "--report",
+          "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/build/tests/verified-ct-read/integrated-fixture-report.json",
+          "--library",
+          "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/libutils.so",
+          "--build-log",
+          "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/build-and-test.log",
+          "--guard",
+          "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/guard.log.json",
+          "--output",
+          "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-postcheck-v1/result"
+        ],
+        "rc": 0,
+        "reason": null,
+        "peak_group_rss_bytes": 18481152,
+        "final_group_rss_bytes": 0,
+        "wall_s": 0.1300149180169683,
+        "predeclared_successful_exit_shutdown_grace_s": 2.0,
+        "rss_accounting": "sum of resident pages for processes in owned POSIX process group; shared pages may count more than once",
+        "diagnostics": {
+          "descendant_detection": [],
+          "after_cleanup": [],
+          "recent_poll_snapshots": [
+            {
+              "at_monotonic": 135927.759452521,
+              "members": [
+                {
+                  "pid": 4184715,
+                  "ppid": 4184711,
+                  "pgid": 4184715,
+                  "session": 4184715,
+                  "start_ticks": 13592773,
+                  "state": "Z",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [],
+                  "state_after_cmdline": "Z"
+                }
+              ]
+            }
+          ],
+          "observed_identity_catalog": [
+            {
+              "first_seen_monotonic": 135927.759452521,
+              "pid": 4184715,
+              "ppid": 4184711,
+              "pgid": 4184715,
+              "session": 4184715,
+              "start_ticks": 13592773,
+              "state": "Z",
+              "comm": "python3",
+              "cmdline_truncated": false,
+              "cmdline": [],
+              "state_after_cmdline": "Z",
+              "last_seen_monotonic": 135927.759452521
+            }
+          ],
+          "natural_shutdown": [],
+          "identity_fields": "pid, ppid, pgid, session, Linux /proc starttime ticks, state, comm, cmdline; cmdline reads checked against same start ticks",
+          "decision_contract": "New prospective bounded natural drain only after direct child rc0. Continuous RSS/absolute deadline checks; final strict no-live-owned-group; all nonzero/survivor/resource failures retain owned-group TERM/KILL cleanup. No process-name exemptions; old failures unchanged."
+        }
+      }
+    },
+    {
+      "path": "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-postcheck-v1/result/verification.json",
+      "bytes": 777,
+      "sha256": "76236fd31d4bda28655832615bed560800da7917faf2126b76b427b3e1a1143d"
+    }
+  ],
+  "ended": 1792865044.999369
+}

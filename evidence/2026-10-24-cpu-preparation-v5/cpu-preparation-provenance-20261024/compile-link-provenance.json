@@ -1,0 +1,120 @@
+{
+  "schema": "publication-build-provenance-v1",
+  "base_commit": "417e17689029434fa1572efe20a3e7a9bfc79be4",
+  "library_sha256": "e4287923b8468a157eba6895d82c17a2f00105eeda32a6c9ec6755673b52231d",
+  "command_evidence_scope": "Commands reconstructed mechanically from pinned build script and retained provenance; not a newly executed build or complete command execution transcript.",
+  "build_script": {
+    "path": "scheduler\\selected-read-integrity-v2-candidate\\failclosed-v3-repair-v1\\failclosed-v5-qualification-v1\\build_and_test_failclosed_v5.py",
+    "sha256": "a5058b2510fc59ae4b9e4bb9a36ed745ae521cfb8719df5cacad6e7bdfe3a901"
+  },
+  "original_provenance_sha256": "e6ee71aef236875906e5bd10d7675816a3d954ee015fdcadb5548209228b3e33",
+  "original_compile_command": {
+    "directory": "/work/flatboi_build/build_pr",
+    "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_NO_DEBUG -DUTILS_HAS_CURL=1 -Dutils_EXPORTS -I/work/flatboi_build/src_pr/volume-cartographer/core/include -I/work/flatboi_build/src_pr/volume-cartographer/utils/include -isystem /usr/include/x86_64-linux-gnu/qt6/QtCore -isystem /usr/include/x86_64-linux-gnu/qt6 -isystem /usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -O3 -DNDEBUG -std=gnu++23 -fPIC -fPIC -pipe -march=x86-64-v3 -g3 -fno-omit-frame-pointer -fasynchronous-unwind-tables -fno-eliminate-unused-debug-types -ffunction-sections -fdata-sections -O3 -flto=auto -Wno-psabi -Wno-ignored-attributes -Wno-narrowing -o utils/CMakeFiles/utils.dir/src/zarr.cpp.o -c /work/flatboi_build/src_pr/volume-cartographer/utils/src/zarr.cpp",
+    "file": "/work/flatboi_build/src_pr/volume-cartographer/utils/src/zarr.cpp",
+    "output": "utils/CMakeFiles/utils.dir/src/zarr.cpp.o"
+  },
+  "commands": [
+    [
+      "/usr/bin/g++",
+      "-I/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/compile-include",
+      "-I/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source",
+      "-DQT_CORE_LIB",
+      "-DQT_NO_DEBUG",
+      "-DUTILS_HAS_CURL=1",
+      "-Dutils_EXPORTS",
+      "-I/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/core/include",
+      "-I/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/include",
+      "-isystem",
+      "/usr/include/x86_64-linux-gnu/qt6/QtCore",
+      "-isystem",
+      "/usr/include/x86_64-linux-gnu/qt6",
+      "-isystem",
+      "/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++",
+      "-O3",
+      "-DNDEBUG",
+      "-std=gnu++23",
+      "-fPIC",
+      "-fPIC",
+      "-pipe",
+      "-march=x86-64-v3",
+      "-g3",
+      "-fno-omit-frame-pointer",
+      "-fasynchronous-unwind-tables",
+      "-fno-eliminate-unused-debug-types",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-O3",
+      "-flto=2",
+      "-Wno-psabi",
+      "-Wno-ignored-attributes",
+      "-Wno-narrowing",
+      "-c",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-source/volume-cartographer/utils/src/zarr.cpp",
+      "-o",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/zarr-candidate.o"
+    ],
+    [
+      "/usr/bin/g++",
+      "-shared",
+      "-flto=2",
+      "-Wl,--gc-sections",
+      "-Wl,--as-needed",
+      "-Wl,-soname,libutils.so",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/zarr-candidate.o",
+      "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/Json.cpp.o",
+      "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/aws_auth.cpp.o",
+      "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/http_fetch.cpp.o",
+      "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/sftp_fetch.cpp.o",
+      "-L/mnt/oldpc/vesuvius_park/production-renderer-library-restore-v5/science/lib",
+      "-Wl,-rpath,/mnt/oldpc/vesuvius_park/production-renderer-library-restore-v5/science/lib",
+      "-Wl,-l:libQt6Core.so.6",
+      "-Wl,-l:libcurl.so.4",
+      "-Wl,-l:libz.so.1",
+      "-Wl,-l:libzstd.so.1",
+      "-Wl,-l:liblz4.so.1",
+      "-Wl,-l:libcrypto.so.3",
+      "-o",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/libutils.so"
+    ],
+    [
+      "cmake",
+      "-S",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/cmake-source",
+      "-B",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/build",
+      "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    [
+      "cmake",
+      "--build",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/build",
+      "--target",
+      "test_verified_ct_read",
+      "-j2"
+    ],
+    [
+      "ctest",
+      "--test-dir",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/build",
+      "-R",
+      "verified_ct_read",
+      "--output-on-failure"
+    ]
+  ],
+  "environment": {
+    "TMPDIR": "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification",
+    "LD_LIBRARY_PATH": "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification:/mnt/oldpc/vesuvius_park/production-renderer-library-restore-v5/science/lib"
+  },
+  "retained_objects": {
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/Json.cpp.o": "94a104708a458ca9dce4a4675915d122ebe151b2fa6673167355f4e3b346a0f0",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/aws_auth.cpp.o": "84ba419ae7d365639ddf55a18f262cdb5267faba18e2390f5eb896b8a9f723f6",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/http_fetch.cpp.o": "6975a5485376a856bb7d52998fac4fcb9be397d8f5c0668d3ccbe4dd2fd78ec9",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/sftp_fetch.cpp.o": "888e286133a12ef06f8dc5b2ec1f36be99bba9b46aeca7a4cbd399224490d24c"
+  },
+  "limitations": [
+    "Retained project objects were linked; full clean repository build was not demonstrated.",
+    "Focused CMake public API fixture imports the resulting libutils; it is not the full repository build.",
+    "Original wrapper exited 1 after successful CTest due report-processing bug; preserved postcheck validates existing outputs only."
+  ]
+}

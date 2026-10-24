@@ -1,0 +1,71 @@
+{
+  "schema": "selected-read-rebuild-provenance-v1",
+  "original_inputs": {
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/CMakeLists.txt": "d5ee75c68a4a41e4d859c607b6b414a87c10ffd955aae7e9d3aed756a67b5981",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/include/utils/Json.hpp": "5b78996413fbaa71e4dcadaceeb309052684912ed78522e78dc198f3f3aae519",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/include/utils/c3d_codec.hpp": "186ea5d11984a09ec0cca312db2ce5a92d68f4acac6d898d7e1b2d3a9a0d692b",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/include/utils/compositing.hpp": "37d23674244242045ade4aaec7f3e7f5fe278f11631ff5ad63c25d46bd6d912f",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/include/utils/hash.hpp": "f702b8fceb470e9e2a2219e454ba6a7781436de9daa45d96a4854bbc8f9e9a85",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/include/utils/http_fetch.hpp": "1b05c9b9ff3659a6e80ae26230aa5a32f261e6b67ac987fd53a9997ce51a3da3",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/include/utils/sftp_fetch.hpp": "5c4c0d1a9eb50623fc29b79718b5a9643cd77887f8eddb9c146c2b5ad2122183",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/include/utils/thread_pool.hpp": "c0d4d5e3fb730d98c0bb53da652b6dd8e4350fd5ec928ba73fbcf016bc9ef198",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/include/utils/volcomp_codec.hpp": "16269254b50c065f987deeaf82b656a848aed62a134d6b78310adc27f4558504",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/include/utils/zarr.hpp": "766af5177056c4d97262e9876fa3809388fa5425261541c6e0c4719d9b02f4ca",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/src/Json.cpp": "429e21cfa8c2a06858868378cfa19f6af67dd3b739e11a1ec127d62ca2a8b8c3",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/src/aws_auth.cpp": "0205450130ed7550b63069c8c6607f275c834bfb355b112175bf6aebffe27cb1",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/src/c3d_codec.cpp": "9424b61dcdfef0286d3ac2e8cc27c1a9cad6dcb52b5248459ae27f11a226c724",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/src/http_fetch.cpp": "a325e7ee8c196ab2125c7489c7a6a1b825359e16ac8328e97649f31d6983ca9a",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/src/sftp_fetch.cpp": "5a76f3dcc078d5b3d8c231834ef57399fd92125c3017a60daff34b713bc70f50",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/src/volcomp_codec.cpp": "1a3e5ecaa24649884eb3327b589a4aab501239e95bb427227fa18733b98c3c84",
+    "/mnt/scrolls/vesuvius/flatboi_build/src_pr/volume-cartographer/utils/src/zarr.cpp": "2555d3a9976cbd4002ac912648fc63f25e7139b93bf5265d2bbe7fb6ff98b6ba",
+    "/mnt/scrolls/vesuvius/flatboi_build/build_pr/utils/CMakeFiles/utils.dir/src/Json.cpp.o": "94a104708a458ca9dce4a4675915d122ebe151b2fa6673167355f4e3b346a0f0",
+    "/mnt/scrolls/vesuvius/flatboi_build/build_pr/utils/CMakeFiles/utils.dir/src/aws_auth.cpp.o": "84ba419ae7d365639ddf55a18f262cdb5267faba18e2390f5eb896b8a9f723f6",
+    "/mnt/scrolls/vesuvius/flatboi_build/build_pr/utils/CMakeFiles/utils.dir/src/http_fetch.cpp.o": "6975a5485376a856bb7d52998fac4fcb9be397d8f5c0668d3ccbe4dd2fd78ec9",
+    "/mnt/scrolls/vesuvius/flatboi_build/build_pr/utils/CMakeFiles/utils.dir/src/sftp_fetch.cpp.o": "888e286133a12ef06f8dc5b2ec1f36be99bba9b46aeca7a4cbd399224490d24c",
+    "/mnt/scrolls/vesuvius/flatboi_build/build_pr/compile_commands.json": "712bc368e7a77980021e00a085e02f1eb879c8f5a601158dd6acd1cf50a192b4"
+  },
+  "source_snapshot_pins": {
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/CMakeLists.txt": "d5ee75c68a4a41e4d859c607b6b414a87c10ffd955aae7e9d3aed756a67b5981",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/include/utils/Json.hpp": "5b78996413fbaa71e4dcadaceeb309052684912ed78522e78dc198f3f3aae519",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/include/utils/c3d_codec.hpp": "186ea5d11984a09ec0cca312db2ce5a92d68f4acac6d898d7e1b2d3a9a0d692b",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/include/utils/compositing.hpp": "37d23674244242045ade4aaec7f3e7f5fe278f11631ff5ad63c25d46bd6d912f",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/include/utils/hash.hpp": "f702b8fceb470e9e2a2219e454ba6a7781436de9daa45d96a4854bbc8f9e9a85",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/include/utils/http_fetch.hpp": "1b05c9b9ff3659a6e80ae26230aa5a32f261e6b67ac987fd53a9997ce51a3da3",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/include/utils/sftp_fetch.hpp": "5c4c0d1a9eb50623fc29b79718b5a9643cd77887f8eddb9c146c2b5ad2122183",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/include/utils/thread_pool.hpp": "c0d4d5e3fb730d98c0bb53da652b6dd8e4350fd5ec928ba73fbcf016bc9ef198",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/include/utils/volcomp_codec.hpp": "16269254b50c065f987deeaf82b656a848aed62a134d6b78310adc27f4558504",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/include/utils/zarr.hpp": "766af5177056c4d97262e9876fa3809388fa5425261541c6e0c4719d9b02f4ca",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/src/Json.cpp": "429e21cfa8c2a06858868378cfa19f6af67dd3b739e11a1ec127d62ca2a8b8c3",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/src/aws_auth.cpp": "0205450130ed7550b63069c8c6607f275c834bfb355b112175bf6aebffe27cb1",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/src/c3d_codec.cpp": "9424b61dcdfef0286d3ac2e8cc27c1a9cad6dcb52b5248459ae27f11a226c724",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/src/http_fetch.cpp": "a325e7ee8c196ab2125c7489c7a6a1b825359e16ac8328e97649f31d6983ca9a",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/src/sftp_fetch.cpp": "5a76f3dcc078d5b3d8c231834ef57399fd92125c3017a60daff34b713bc70f50",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/src/volcomp_codec.cpp": "1a3e5ecaa24649884eb3327b589a4aab501239e95bb427227fa18733b98c3c84",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/source-snapshot/src/zarr.cpp": "2555d3a9976cbd4002ac912648fc63f25e7139b93bf5265d2bbe7fb6ff98b6ba",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/Json.cpp.o": "94a104708a458ca9dce4a4675915d122ebe151b2fa6673167355f4e3b346a0f0",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/aws_auth.cpp.o": "84ba419ae7d365639ddf55a18f262cdb5267faba18e2390f5eb896b8a9f723f6",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/http_fetch.cpp.o": "6975a5485376a856bb7d52998fac4fcb9be397d8f5c0668d3ccbe4dd2fd78ec9",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/sftp_fetch.cpp.o": "888e286133a12ef06f8dc5b2ec1f36be99bba9b46aeca7a4cbd399224490d24c"
+  },
+  "original_compile_command": {
+    "directory": "/work/flatboi_build/build_pr",
+    "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_NO_DEBUG -DUTILS_HAS_CURL=1 -Dutils_EXPORTS -I/work/flatboi_build/src_pr/volume-cartographer/core/include -I/work/flatboi_build/src_pr/volume-cartographer/utils/include -isystem /usr/include/x86_64-linux-gnu/qt6/QtCore -isystem /usr/include/x86_64-linux-gnu/qt6 -isystem /usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -O3 -DNDEBUG -std=gnu++23 -fPIC -fPIC -pipe -march=x86-64-v3 -g3 -fno-omit-frame-pointer -fasynchronous-unwind-tables -fno-eliminate-unused-debug-types -ffunction-sections -fdata-sections -O3 -flto=auto -Wno-psabi -Wno-ignored-attributes -Wno-narrowing -o utils/CMakeFiles/utils.dir/src/zarr.cpp.o -c /work/flatboi_build/src_pr/volume-cartographer/utils/src/zarr.cpp",
+    "file": "/work/flatboi_build/src_pr/volume-cartographer/utils/src/zarr.cpp",
+    "output": "utils/CMakeFiles/utils.dir/src/zarr.cpp.o"
+  },
+  "retained_objects": [
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/Json.cpp.o",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/aws_auth.cpp.o",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/http_fetch.cpp.o",
+    "/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/retained-objects/sftp_fetch.cpp.o"
+  ],
+  "changes": [
+    "read_raw guarded before alternate branch",
+    "all four shard entry paths reject protected roots",
+    "CURL declarations retain original enabled compile branch",
+    "bounded LTO link uses2threads"
+  ],
+  "original_binary": "/mnt/scrolls/vesuvius/flatboi_build/build_pr/bin/vc_render_tifxyz",
+  "original_binary_sha256": "1eb7d7248c2e52eb79b8c0c3be0daf02411ffbe7b448600e4356c2435f48561a",
+  "original_libutils_sha256": "ca7a2bf3f5c1ba0f6bbc263d6582b34eb2030693e32a1baac443498e38b9060b"
+}

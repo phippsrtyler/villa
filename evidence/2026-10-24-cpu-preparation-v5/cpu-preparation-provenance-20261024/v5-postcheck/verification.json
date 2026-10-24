@@ -1,0 +1,22 @@
+{
+  "status": "PASS_PRESERVED_V5_BUILD_AND_35_CASE_REPORT",
+  "case_count": 35,
+  "partial_opt_in_masks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "input_sha256": {
+    "library": "e4287923b8468a157eba6895d82c17a2f00105eeda32a6c9ec6755673b52231d",
+    "fixture_report": "2e3627e5c584ad5b9cc3be14b493c6c37734c973f51c7a1f8f741e36cf610bdf",
+    "build_log": "02d74942c2dc0a8a408d258423a85c7277edf1951d215d764c0d85b3add761dd",
+    "guard_receipt": "eecea67370219c13749905df813edc37923509c3c22d3a203926a9bbf0acdbc8"
+  },
+  "source_build_log_ctest_pass": true,
+  "original_runner_exit": 1,
+  "original_owned_group_final_rss_bytes": 0,
+  "scope": "Read-only verification of already-preserved outputs; this helper did not invoke the compiler, CMake, CTest, or the fixture."
+}

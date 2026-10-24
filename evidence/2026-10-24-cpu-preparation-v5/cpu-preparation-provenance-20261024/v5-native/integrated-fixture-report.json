@@ -1,0 +1,314 @@
+{
+  "status": "PASS_INTEGRATED_GUARDED_PUBLIC_ZARR_API",
+  "cases": [
+    {
+      "case": 0,
+      "mode": "encoded",
+      "expected": "abc",
+      "returncode": 0,
+      "events": [
+        {
+          "bytes": 0,
+          "key": "2699ad05389835a69bb806810f6b4a664ff359d4ee7eecf5fbf15c613ebefdbc",
+          "status": "INITIALIZED"
+        },
+        {
+          "bytes": 3,
+          "key": "0/0/0",
+          "status": "VERIFIED_PRESENT"
+        }
+      ]
+    },
+    {
+      "case": 1,
+      "mode": "storage",
+      "expected": "abc",
+      "returncode": 0,
+      "events": [
+        {
+          "bytes": 0,
+          "key": "da189353c0168cd64f8e2ebe393ab73e71cb8929ce0b6330182d48ad33c31201",
+          "status": "INITIALIZED"
+        },
+        {
+          "bytes": 3,
+          "key": "0/0/0",
+          "status": "VERIFIED_PRESENT"
+        }
+      ]
+    },
+    {
+      "case": 2,
+      "mode": "encoded",
+      "expected": "SHA256 mismatch",
+      "returncode": 7,
+      "events": [
+        {
+          "bytes": 0,
+          "key": "41026be77d5e485c48402507dc0abaac696ffb7a2f0db84032e7eec715c413ea",
+          "status": "INITIALIZED"
+        },
+        {
+          "bytes": 0,
+          "key": "0/0/0",
+          "status": "REJECTED"
+        }
+      ]
+    },
+    {
+      "case": 3,
+      "mode": "encoded",
+      "expected": "size mismatch",
+      "returncode": 7,
+      "events": [
+        {
+          "bytes": 0,
+          "key": "d126d369f6b9b329133c36e35b3fc58c5c9e034abe5969aa6eaebece51f5b34d",
+          "status": "INITIALIZED"
+        },
+        {
+          "bytes": 0,
+          "key": "0/0/0",
+          "status": "REJECTED"
+        }
+      ]
+    },
+    {
+      "case": 4,
+      "mode": "encoded",
+      "expected": "missing/nonregular",
+      "returncode": 7,
+      "events": [
+        {
+          "bytes": 0,
+          "key": "6878cb5f758e47c21ce6c396903639a8012c48534525078c1835e7e59dc31ed5",
+          "status": "INITIALIZED"
+        },
+        {
+          "bytes": 0,
+          "key": "0/0/0",
+          "status": "REJECTED"
+        }
+      ]
+    },
+    {
+      "case": 5,
+      "mode": "encoded",
+      "expected": "EXPLICIT_ABSENT",
+      "returncode": 0,
+      "events": [
+        {
+          "bytes": 0,
+          "key": "bb0145516229fd0024e7a23836fa6c770939305b5d4c03c457268cd42f804a41",
+          "status": "INITIALIZED"
+        },
+        {
+          "bytes": 0,
+          "key": "0/0/0",
+          "status": "EXPLICIT_ABSENT"
+        }
+      ]
+    },
+    {
+      "case": 6,
+      "mode": "encoded",
+      "expected": "source-absent chunk appeared",
+      "returncode": 7,
+      "events": [
+        {
+          "bytes": 0,
+          "key": "bdd117dd8b1c2647a3c5d3fbd26c005b6a48630348332ecbf1d32b550cf19a91",
+          "status": "INITIALIZED"
+        },
+        {
+          "bytes": 0,
+          "key": "0/0/0",
+          "status": "REJECTED"
+        }
+      ]
+    },
+    {
+      "case": 7,
+      "mode": "encoded",
+      "expected": "unlisted CT read",
+      "returncode": 7,
+      "events": [
+        {
+          "bytes": 0,
+          "key": "d43f64f3731b74e4979390037b4b4c499ad131bd4114799b1483442693c58103",
+          "status": "INITIALIZED"
+        },
+        {
+          "bytes": 0,
+          "key": "0/0/0",
+          "status": "REJECTED"
+        }
+      ]
+    },
+    {
+      "case": 8,
+      "mode": "shard",
+      "expected": "bypass API forbidden",
+      "returncode": 7,
+      "events": [
+        {
+          "bytes": 0,
+          "key": "d07bee055ec975dc25c0114ac493e89e61816dab9593c9eedd2c9c3543522f8b",
+          "status": "INITIALIZED"
+        },
+        {
+          "bytes": 0,
+          "key": "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/build/tests/verified-ct-read/integrated-fixtures-jw4w6w5z/8/volume/0",
+          "status": "REJECTED_BYPASS"
+        }
+      ]
+    },
+    {
+      "case": 9,
+      "mode": "store",
+      "expected": "alternate store forbidden",
+      "returncode": 7,
+      "events": [
+        {
+          "bytes": 0,
+          "key": "caa8c391736872cab1b319bbf1cddc66e68414ba470a4e51b15f01b8c261f064",
+          "status": "INITIALIZED"
+        },
+        {
+          "bytes": 0,
+          "key": "alternate-store",
+          "status": "REJECTED_STORE"
+        }
+      ]
+    },
+    {
+      "case": 10,
+      "mode": "store_registry",
+      "expected": "alternate store forbidden",
+      "returncode": 7,
+      "events": [
+        {
+          "bytes": 0,
+          "key": "2dce1b4c74f24990f62d865d501c981af724c9d9e56bd622effaa2b5a3f8c35b",
+          "status": "INITIALIZED"
+        },
+        {
+          "bytes": 0,
+          "key": "alternate-store",
+          "status": "REJECTED_STORE"
+        }
+      ]
+    },
+    {
+      "case": 11,
+      "mode": "level",
+      "expected": "unapproved CT level",
+      "returncode": 7,
+      "events": [
+        {
+          "bytes": 0,
+          "key": "3d686c170736420b73e529756b4fbf3a1c2db224893fe03f7b3747f1756e42b1",
+          "status": "INITIALIZED"
+        },
+        {
+          "bytes": 0,
+          "key": "0/0/0",
+          "status": "REJECTED"
+        }
+      ]
+    },
+    {
+      "case": "init_write",
+      "returncode": 86
+    },
+    {
+      "case": "read_write",
+      "returncode": 86
+    },
+    {
+      "case": "event_cap",
+      "returncode": 86
+    },
+    {
+      "case": "bad_sha",
+      "returncode": 86
+    },
+    {
+      "case": "incomplete",
+      "returncode": 86
+    },
+    {
+      "case": "swallowed_read_failure_has_REJECTED",
+      "returncode": 0
+    },
+    {
+      "case": "partial_opt_in_mask_1",
+      "returncode": 86
+    },
+    {
+      "case": "partial_opt_in_mask_2",
+      "returncode": 86
+    },
+    {
+      "case": "partial_opt_in_mask_3",
+      "returncode": 86
+    },
+    {
+      "case": "partial_opt_in_mask_4",
+      "returncode": 86
+    },
+    {
+      "case": "partial_opt_in_mask_5",
+      "returncode": 86
+    },
+    {
+      "case": "partial_opt_in_mask_6",
+      "returncode": 86
+    },
+    {
+      "case": "absent_opt_in_stock",
+      "returncode": 0
+    },
+    {
+      "case": "malformed_manifest_malformed_json",
+      "returncode": 86
+    },
+    {
+      "case": "malformed_manifest_wrong_schema",
+      "returncode": 86
+    },
+    {
+      "case": "malformed_manifest_wrong_field_type",
+      "returncode": 86
+    },
+    {
+      "case": "malformed_manifest_traversal_key",
+      "returncode": 86
+    },
+    {
+      "case": "malformed_manifest_duplicate_key",
+      "returncode": 86
+    },
+    {
+      "case": "malformed_manifest_malformed_expected_digest",
+      "returncode": 86
+    },
+    {
+      "case": "malformed_manifest_configured_limit_over_hard_cap",
+      "returncode": 86
+    },
+    {
+      "case": "malformed_manifest_row_over_hard_cap",
+      "returncode": 86
+    },
+    {
+      "case": "store_stock_works_without_opt_in",
+      "returncode": 0
+    },
+    {
+      "case": "store_registry_stock_works_without_opt_in",
+      "returncode": 0
+    }
+  ],
+  "scope": "Actual guarded libutils public API; no renderer or GPU; exact renderer I/O reconciliation remains required."
+}

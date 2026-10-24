@@ -1,0 +1,31 @@
+{
+  "status": "UPSTREAM_PUBLIC_API_CMAKE_CTEST_PASS",
+  "commands": [
+    [
+      "cmake",
+      "-S",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-cmake-ctest-v1/cmake-source",
+      "-B",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-cmake-ctest-v1/build",
+      "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    [
+      "cmake",
+      "--build",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-cmake-ctest-v1/build",
+      "--target",
+      "test_verified_ct_read",
+      "-j2"
+    ],
+    [
+      "ctest",
+      "--test-dir",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-cmake-ctest-v1/build",
+      "-R",
+      "verified_ct_read",
+      "--output-on-failure"
+    ]
+  ],
+  "wall_seconds": 7.3285601349925855,
+  "scope": "Actual draft utils/tests CMake wiring and public API fixtures against separately qualified libutils. Full repository CMake not configured; OpenSSL/Qt development headers absent, no installs. No renderer/GPU/performance claim."
+}

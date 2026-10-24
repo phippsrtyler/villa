@@ -1,0 +1,9 @@
+{
+  "schema": "selected-read-final-source-cpu-sequence-v1",
+  "output_root": "/archive/selected-read-final-source-v5-cpu-preparation-v3",
+  "configs": [
+    "/archive/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-r1-config.json",
+    "/archive/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-r2-config.json",
+    "/archive/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-r3-config.json"
+  ]
+}

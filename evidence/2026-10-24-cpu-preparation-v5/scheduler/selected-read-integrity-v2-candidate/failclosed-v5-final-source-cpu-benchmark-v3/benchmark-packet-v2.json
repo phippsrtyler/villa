@@ -1,0 +1,122 @@
+{
+  "schema": "selected-read-final-source-v5-cpu-paired-benchmark-v2",
+  "status": "LOCAL_PACKET_PREPARED_ROOT_REVIEW_AND_NATIVE_STAGING_REQUIRED_NOT_SUBMITTED_V3_LEDGER_CLOSURE_FIX",
+  "qualification_scope": "CPU-only selected-read preparation timing; no GPU or inference performance claim",
+  "source_correspondence": {
+    "candidate_patch": "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-source/selected-read-cpu-final-v5.patch",
+    "candidate_patch_sha256": "3a0f02fb0cb74e4ed0486e3c94a3ca6fea9a4d30cdca0985ae08c3409a6270fb",
+    "candidate_library": "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/libutils.so",
+    "candidate_library_sha256": "e4287923b8468a157eba6895d82c17a2f00105eeda32a6c9ec6755673b52231d",
+    "build_postcheck": "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-postcheck-v1/result/verification.json",
+    "build_postcheck_sha256": "76236fd31d4bda28655832615bed560800da7917faf2126b76b427b3e1a1143d",
+    "fixture_report_sha256": "2e3627e5c584ad5b9cc3be14b493c6c37734c973f51c7a1f8f741e36cf610bdf",
+    "production_caller_qualification": "/mnt/oldpc/vesuvius_park/selected-read-v5-optin-integration-qualification-v2/science/integration.json",
+    "production_caller_qualification_sha256": "7a055258e57115efb2182077cb384110f73f243fa2a85c090f3533992f334f87",
+    "prior_v3_benchmark_results_reused": false,
+    "evidence_note": "v5 source/library and v2 production-caller correctness only; no v5 paired timing has been run.",
+    "audit_file": "NOT_APPLICABLE_V5_SOURCE_PINNED_POSTCHECK",
+    "audit_sha256": "",
+    "qualified_candidate_producer": "/mnt/oldpc/vesuvius_park/selected-read-v5-optin-integration-qualification-v2-source/producer.py",
+    "qualified_candidate_producer_sha256": "8ec9c25525a7f55cfdc3b179c2b0dec2ed16eb1603fe05c196ba2e43df4af2ea",
+    "qualified_stock_producer": "/mnt/oldpc/vesuvius_park/selected-read-paired-preparation-v1-source/stock_finite_producer.py",
+    "qualified_stock_producer_sha256": "2560ccea384e7c830e45899fa27f22bc8c18be948457581ac7350469bef7e036",
+    "qualified_audit_module": "/mnt/oldpc/vesuvius_park/selected-read-v5-optin-integration-qualification-v2-source/audit_qualification_ledger.py",
+    "qualified_audit_module_sha256": "cf19ae7b026a39828d542f5e1de443982fd22af08d2d50b75c5cc7755ce4b384",
+    "qualified_crop_identity_module": "/mnt/oldpc/vesuvius_park/selected-read-v5-optin-integration-qualification-v2-source/requested_crop_identity_v1.py",
+    "qualified_crop_identity_module_sha256": "51b9c085e002f76ddf6b04f1d9ddde069997153a89dc0faf883dcab862b1c5f8",
+    "fixture_report": "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/build/tests/verified-ct-read/integrated-fixture-report.json",
+    "build_log": "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/build-and-test.log",
+    "build_log_sha256": "02d74942c2dc0a8a408d258423a85c7277edf1951d215d764c0d85b3add761dd",
+    "guard_receipt": "/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/guard.log.json",
+    "guard_receipt_sha256": "eecea67370219c13749905df813edc37923509c3c22d3a203926a9bbf0acdbc8"
+  },
+  "runner": {
+    "path": "run_pinned_paired_benchmark.py",
+    "sha256": "257df60f2c34e449294185020acc11731cd07f7b6af4a4374a8f16dd9496c1a7",
+    "protocol_path": "../../../selected-read-integrity-v1/PAIRED_PROTOCOL_V1.md",
+    "protocol_sha256": "b1a92b6387b419e5124578d321aed627b3edb5d2da5e302a7986b5244e506907",
+    "representative_manifest_sha256": "56dd6c8cd71f17858fe8c7e8a7da9e7469ee23453096c4d47c4560268746d974",
+    "representative_plan_path": "../../../selected-read-integrity-v1/production-1218-window8576-selectedread-render-plan-v5.json",
+    "representative_plan_sha256": "85f4d8df56138acc654c180189d029ac8f188195cfb0215d9cdcc46161b24b11",
+    "cpu_protocol_amendment_path": "CPU_ONLY_PROTOCOL_AMENDMENT_V2.md",
+    "cpu_protocol_amendment_sha256": "582b3fd34d45fd605bcc03a123a21a6bc2a688d6e65af6fe55ce586c7918730c",
+    "library_resolution_preflight_path": "library_resolution_preflight.py",
+    "library_resolution_preflight_sha256": "05af4b6e9545b18c70e00d79f5a6952573423daa2c1075ae3364f5f9e8b18eec",
+    "paired_runner_path": "paired_preparation_runner_v5.py",
+    "paired_runner_sha256": "b07e8b10356876fc525e09f8ed5032e48c61f392ee337c9e676ed2ddb8a7a966",
+    "runner_helper_modules": {
+      "qualify_render.py": "1f3f2011753926d0985cf2ad31bb3afb2626d72c9e9eddaa1b72a7dfc9cf7b9a",
+      "audit_qualification_ledger.py": "cf19ae7b026a39828d542f5e1de443982fd22af08d2d50b75c5cc7755ce4b384"
+    },
+    "candidate_injection": "Use exact v5 selected_read_verified tuple. Pinned producer overwrites VC_VERIFIED_CT_LEDGER with out/selected-read-events.jsonl and emits selected-read-integrity.json; runner independently validates both. Baseline removes opt-in contract key and all inherited VC_VERIFIED_* environment variables."
+  },
+  "design": {
+    "host": "same qualified Linux CPU preparation host used for prior paired runs",
+    "repetitions": 3,
+    "arm_orders": [
+      "baseline,candidate",
+      "candidate,baseline",
+      "baseline,candidate"
+    ],
+    "fixed_crops": [
+      {
+        "label": "broad1218-first",
+        "coordinates": [
+          27,
+          180,
+          1060
+        ]
+      },
+      {
+        "label": "geometry-selected-largest",
+        "coordinates": [
+          27,
+          180,
+          4640
+        ]
+      }
+    ],
+    "baseline": "unchanged stock whole-CT byte verification; remove all inherited VC_VERIFIED_* variables",
+    "candidate": "v5 fail-closed verified-read implementation; full verified-read opt-in tuple; use exact pinned v5 libutils.so",
+    "per_arm_requirements": {
+      "fresh_output": true,
+      "guarded_process_group_cleanup": true,
+      "ledger_initialized_and_verified_reads": true,
+      "zero_rejected_ledger_events": true,
+      "exact_render_tree_equality_for_each_crop": true
+    },
+    "cache_and_concurrency": {
+      "exclusive_host_reservation": true,
+      "cpu_slots": 2,
+      "inner_process_rss_cap_gib": 4,
+      "host_ram_floor_gib": 8,
+      "archive_free_floor_gib": 40,
+      "scrolls_free_floor_gib": 50,
+      "output_reservation_gib_per_repetition": 0.3,
+      "cache_policy": "natural warm OS cache; no cache flush or root writes; alternation balances order; report shared-host interference and queue waiting separately"
+    },
+    "planned_jobs": [
+      "selected-read-final-source-v5-cpu-preparation-r1",
+      "selected-read-final-source-v5-cpu-preparation-r2",
+      "selected-read-final-source-v5-cpu-preparation-r3"
+    ],
+    "dependencies": [
+      "selected-read-upstream-failclosed-v5-postcheck-v1",
+      "selected-read-v5-optin-integration-qualification-v2",
+      "selected-read-render-qualification-v4",
+      "selected-read-render-large-qualification-v1",
+      "selected-read-render-missing-audit-v3",
+      "selected-read-arm-timeout-cleanup-v1"
+    ],
+    "candidate_library_sha256": "e4287923b8468a157eba6895d82c17a2f00105eeda32a6c9ec6755673b52231d"
+  },
+  "fresh_output_roots_to_check_before_native_preflight": [
+    "/mnt/oldpc/vesuvius_park/selected-read-final-source-v5-cpu-preparation-v3"
+  ],
+  "unresolved_native_checks": [
+    "Verify current dependency terminal states in the central queue.",
+    "Stage exact source/pin files to the versioned helper and output roots.",
+    "Run actual Docker linker-resolution preflight against renderer 1eb7d7248c2e52eb79b8c0c3be0daf02411ffbe7b448600e4356c2435f48561a and the exact v5 lib; save proof outside timing.",
+    "Verify output roots absent, host/disk reservations, source pins, native descriptor preflight, and central queue schema. Do not submit before root review."
+  ]
+}

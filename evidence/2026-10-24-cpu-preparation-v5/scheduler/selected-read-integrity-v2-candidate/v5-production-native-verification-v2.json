@@ -1,0 +1,141 @@
+{
+  "status": "NATIVE_FULL_CONTEXT_AND_FUTURE_CLOSURE_PASS",
+  "package_sha256": "98e31ee8a4f421b0b82fc5ba54be25b43092d1c371497cdaf02eab62be74163a",
+  "actual_context_count": 48,
+  "actual_key_count": 2029,
+  "changed": [
+    {
+      "context_id": "1218-window8960-selectedread",
+      "work_key": "d612cefde309b5aaaa6bfd5a7072827aee8492e827d079ad94942de45c263f07",
+      "producer": "production-1218-window8960-selectedread-d612cefde309b5aa-v1-cpu-v5",
+      "validator": "production-1218-window8960-selectedread-d612cefde309b5aa-v1-validation-inputlane1-cpu-v5",
+      "consumer": "reader3-production-1218window8960-d612cefde309b5aa-r9700-v1",
+      "leaf": "validate-reader3-production-1218window8960-d612cefde309b5aa-r9700-v1",
+      "native_descriptor_admission_count": 2,
+      "actual_submit_plan": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400/1218-window8960-selectedread/render-plan.json",
+      "builder_preview": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400-native-verification-v1/1218-window8960-selectedread"
+    },
+    {
+      "context_id": "1218-window9088-selectedread",
+      "work_key": "917db858f62e28a70666f5c06aa729ba2a5af6edf66c1ac141d001889c699ed7",
+      "producer": "production-1218-window9088-selectedread-917db858f62e28a7-v1-cpu-v5",
+      "validator": "production-1218-window9088-selectedread-917db858f62e28a7-v1-validation-inputlane1-cpu-v5",
+      "consumer": "reader3-production-1218window9088-917db858f62e28a7-r9700-v1",
+      "leaf": "validate-reader3-production-1218window9088-917db858f62e28a7-r9700-v1",
+      "native_descriptor_admission_count": 2,
+      "actual_submit_plan": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400/1218-window9088-selectedread/render-plan.json",
+      "builder_preview": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400-native-verification-v1/1218-window9088-selectedread"
+    },
+    {
+      "context_id": "1218-window9216-selectedread",
+      "work_key": "190f4f3d5746ce44880f7d660b23c88414c8ae072274b7aa296ca80fcb8df030",
+      "producer": "production-1218-window9216-selectedread-190f4f3d5746ce44-v1-cpu-v5",
+      "validator": "production-1218-window9216-selectedread-190f4f3d5746ce44-v1-validation-inputlane1-cpu-v5",
+      "consumer": "reader3-production-1218window9216-190f4f3d5746ce44-mi50-31-v1",
+      "leaf": "validate-reader3-production-1218window9216-190f4f3d5746ce44-mi50-31-v1",
+      "native_descriptor_admission_count": 2,
+      "actual_submit_plan": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400/1218-window9216-selectedread/render-plan.json",
+      "builder_preview": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400-native-verification-v1/1218-window9216-selectedread"
+    },
+    {
+      "context_id": "1218-window9344-selectedread",
+      "work_key": "25e049c41e3391aaecc1dca50ecf8103796e475aa3e8c5841815b93bd75a7d8f",
+      "producer": "production-1218-window9344-selectedread-25e049c41e3391aa-v1-cpu-v5",
+      "validator": "production-1218-window9344-selectedread-25e049c41e3391aa-v1-validation-cpu-v5",
+      "consumer": "reader3-production-1218window9344-25e049c41e3391aa-mi50-03-v1",
+      "leaf": "validate-reader3-production-1218window9344-25e049c41e3391aa-mi50-03-v1",
+      "native_descriptor_admission_count": 2,
+      "actual_submit_plan": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400/1218-window9344-selectedread/render-plan.json",
+      "builder_preview": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400-native-verification-v1/1218-window9344-selectedread"
+    },
+    {
+      "context_id": "1218-window9536-selectedread",
+      "work_key": "eb2e63af96fc8433039a3bc7c56893341085a55c67092763f6dbc2cdc5bd8eff",
+      "producer": "production-1218-window9536-selectedread-eb2e63af96fc8433-v1-cpu-v5",
+      "validator": "production-1218-window9536-selectedread-eb2e63af96fc8433-v1-validation-cpu-v5",
+      "consumer": "reader3-production-1218window9536-eb2e63af96fc8433-mi50-31-v1",
+      "leaf": "validate-reader3-production-1218window9536-eb2e63af96fc8433-mi50-31-v1",
+      "native_descriptor_admission_count": 2,
+      "actual_submit_plan": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400/1218-window9536-selectedread/render-plan.json",
+      "builder_preview": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400-native-verification-v1/1218-window9536-selectedread"
+    },
+    {
+      "context_id": "1218-window9600-selectedread",
+      "work_key": "806488d4bfdf0aaa21cc1068fec17f2cc9dd9b7440dac77f8c904c7e7d3550a4",
+      "producer": "production-1218-window9600-selectedread-806488d4bfdf0aaa-v1-cpu-v5",
+      "validator": "production-1218-window9600-selectedread-806488d4bfdf0aaa-v1-validation-cpu-v5",
+      "consumer": "reader3-production-1218window9600-806488d4bfdf0aaa-r9700-v1",
+      "leaf": "validate-reader3-production-1218window9600-806488d4bfdf0aaa-r9700-v1",
+      "native_descriptor_admission_count": 2,
+      "actual_submit_plan": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400/1218-window9600-selectedread/render-plan.json",
+      "builder_preview": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400-native-verification-v1/1218-window9600-selectedread"
+    },
+    {
+      "context_id": "1218-window9728-selectedread",
+      "work_key": "a0be34da72e568f010ac80aebda2193e07284431dc5d60ccbbf609a344719406",
+      "producer": "production-1218-window9728-selectedread-a0be34da72e568f0-v1-cpu-v5",
+      "validator": "production-1218-window9728-selectedread-a0be34da72e568f0-v1-validation-cpu-v5",
+      "consumer": "reader3-production-1218window9728-a0be34da72e568f0-r9700-v1",
+      "leaf": "validate-reader3-production-1218window9728-a0be34da72e568f0-r9700-v1",
+      "native_descriptor_admission_count": 2,
+      "actual_submit_plan": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400/1218-window9728-selectedread/render-plan.json",
+      "builder_preview": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400-native-verification-v1/1218-window9728-selectedread"
+    },
+    {
+      "context_id": "1218-window9856-selectedread",
+      "work_key": "0298b7bb161791c79fb1752bf0f44d3a7ec81017108f96379248162cfef062d1",
+      "producer": "production-1218-window9856-selectedread-0298b7bb161791c7-v1-cpu-v5",
+      "validator": "production-1218-window9856-selectedread-0298b7bb161791c7-v1-validation-cpu-v5",
+      "consumer": "reader3-production-1218window9856-0298b7bb161791c7-mi50-31-v1",
+      "leaf": "validate-reader3-production-1218window9856-0298b7bb161791c7-mi50-31-v1",
+      "native_descriptor_admission_count": 2,
+      "actual_submit_plan": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400/1218-window9856-selectedread/render-plan.json",
+      "builder_preview": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400-native-verification-v1/1218-window9856-selectedread"
+    },
+    {
+      "context_id": "1218-window9984-selectedread",
+      "work_key": "dce46cee73e0dd4d4ee95c25fc6ba5a3853b8037351abdea62e16d0a5b564557",
+      "producer": "production-1218-window9984-selectedread-dce46cee73e0dd4d-v1-cpu-v5",
+      "validator": "production-1218-window9984-selectedread-dce46cee73e0dd4d-v1-validation-cpu-v5",
+      "consumer": "reader3-production-1218window9984-dce46cee73e0dd4d-r9700-v1",
+      "leaf": "validate-reader3-production-1218window9984-dce46cee73e0dd4d-r9700-v1",
+      "native_descriptor_admission_count": 2,
+      "actual_submit_plan": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400/1218-window9984-selectedread/render-plan.json",
+      "builder_preview": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400-native-verification-v1/1218-window9984-selectedread"
+    },
+    {
+      "context_id": "1218-window10112-selectedread",
+      "work_key": "d895bf23678cd500c56c81e69e2d95a8d8fbf639af11cf8bbd9305a1b3a7da55",
+      "producer": "production-1218-window10112-selectedread-d895bf23678cd500-v1-cpu-v5",
+      "validator": "production-1218-window10112-selectedread-d895bf23678cd500-v1-validation-cpu-v5",
+      "consumer": "reader3-production-1218window10112-d895bf23678cd500-mi50-03-v1",
+      "leaf": "validate-reader3-production-1218window10112-d895bf23678cd500-mi50-03-v1",
+      "native_descriptor_admission_count": 2,
+      "actual_submit_plan": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400/1218-window10112-selectedread/render-plan.json",
+      "builder_preview": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400-native-verification-v1/1218-window10112-selectedread"
+    },
+    {
+      "context_id": "1218-window10240-selectedread",
+      "work_key": "177b49479d07e17183d944b4de2450b5e6d7f66a9347ba429e188465eac134af",
+      "producer": "production-1218-window10240-selectedread-177b49479d07e171-v1-cpu-v5",
+      "validator": "production-1218-window10240-selectedread-177b49479d07e171-v1-validation-cpu-v5",
+      "consumer": "reader3-production-1218window10240-177b49479d07e171-mi50-31-v1",
+      "leaf": "validate-reader3-production-1218window10240-177b49479d07e171-mi50-31-v1",
+      "native_descriptor_admission_count": 2,
+      "actual_submit_plan": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400/1218-window10240-selectedread/render-plan.json",
+      "builder_preview": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400-native-verification-v1/1218-window10240-selectedread"
+    },
+    {
+      "context_id": "1218-window10368-selectedread",
+      "work_key": "754dde23311a0803451091e2083f163edc5da311fcba1d66097d52d6fcbe06e9",
+      "producer": "production-1218-window10368-selectedread-754dde23311a0803-v1-cpu-v5",
+      "validator": "production-1218-window10368-selectedread-754dde23311a0803-v1-validation-cpu-v5",
+      "consumer": "reader3-production-1218window10368-754dde23311a0803-r9700-v1",
+      "leaf": "validate-reader3-production-1218window10368-754dde23311a0803-r9700-v1",
+      "native_descriptor_admission_count": 2,
+      "actual_submit_plan": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400/1218-window10368-selectedread/render-plan.json",
+      "builder_preview": "/mnt/oldpc/vesuvius_park/selected-read-v5-production-packet-v2-1792869400-native-verification-v1/1218-window10368-selectedread"
+    }
+  ],
+  "builder_preview_scope": "Constructor-only preview replaces receipt reader; no producer output acceptance, inference execution, or performance evidence."
+}

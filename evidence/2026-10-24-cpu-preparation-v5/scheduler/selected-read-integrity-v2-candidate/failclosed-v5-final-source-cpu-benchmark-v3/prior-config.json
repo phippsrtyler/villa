@@ -1,0 +1,174 @@
+{
+  "output": "/archive/selected-read-preparation-mi50-r3-v1/science",
+  "order": [
+    "baseline",
+    "candidate"
+  ],
+  "crops": [
+    {
+      "work_key": "59a887eef7e8385596ae84f1a9296db306439ce1ed09ab78aaf331360e3de20b",
+      "contract": "/archive/selected-read-paired-preparation-v1-source/crop-0-contract.json",
+      "expected_shape": [
+        27,
+        180,
+        1060
+      ]
+    },
+    {
+      "work_key": "24655cb86a8d39faefcf4ecc51991cd41f75646c1a1b815e621bb99fb65ed195",
+      "contract": "/archive/selected-read-paired-preparation-v1-source/crop-1-contract.json",
+      "expected_shape": [
+        27,
+        180,
+        4640
+      ]
+    }
+  ],
+  "baseline_source": "/archive/selected-read-paired-preparation-v1-source/stock_finite_producer.py",
+  "candidate_source": "/archive/selected-read-paired-preparation-v1-source/selected_finite_producer.py",
+  "manifest": "/archive/selected-read-render-qualification-v4-source/verified-ct-manifest.json",
+  "view": "/archive/production-1218-contiguous-ct-metadata-view-v4/science/volume.zarr",
+  "candidate_library": "/archive/selected-read-integrity-isolated-build-v3/libutils.so",
+  "candidate_library_path": "/archive/selected-read-integrity-isolated-build-v3:/archive/production-renderer-library-restore-v5/science/lib",
+  "bounded_guard": "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+  "pins": {
+    "/archive/selected-read-paired-preparation-v1-source/stock_finite_producer.py": "2560ccea384e7c830e45899fa27f22bc8c18be948457581ac7350469bef7e036",
+    "/archive/selected-read-paired-preparation-v1-source/selected_finite_producer.py": "8ba7968659fdfc9859708184416cacf13d2192270f2f8b705cb6445224f2bf6a",
+    "/archive/selected-read-render-qualification-v4-source/verified-ct-manifest.json": "2563183df9d745139054fd59ad668d2089724b4df3609a6a48f6d9a757b22201",
+    "/archive/selected-read-integrity-isolated-build-v3/libutils.so": "4de8d394cd15363e062ddb89fac41dbdaaca58f1a382180997fdae7773464ee2",
+    "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py": "51217914872eca0027b570d900f50f5c5b6370d84ff5e5b3b1832d967f09fc1b",
+    "/archive/selected-read-paired-preparation-v1-source/crop-0-contract.json": "6c00042896b4ec33105d6d9d43cab7c86c00cfc985622b4bc4cf3192283d2ade",
+    "/archive/selected-read-paired-preparation-v1-source/crop-1-contract.json": "4bcd3f118d8e5abdb9201be3099bee53051f40f4103080d3564d95a79471f03b"
+  },
+  "protocol": {
+    "schema": "selected-read-fixed-representatives-v1",
+    "selection_rule": "Retained first crop plus max raw XY area then lexicographic work_key within frozen RTX-qualified30; no timing consulted",
+    "catalog_sha256": "5d915cd59dbe78fb345fd326a6eaa0ed00e2e805ac00b9783d9871190a850d6d",
+    "split_sha256": "cddf506d637a4184045de18cc9072260e100932e603474890e21a1fe7482386a",
+    "crops": [
+      {
+        "work_key": "59a887eef7e8385596ae84f1a9296db306439ce1ed09ab78aaf331360e3de20b",
+        "source_path": "/archive/production1218-fit-stock-v5/science/out/2026-10-24_PHerc1218_slice-8448-10496_0-patch/meshes/fitted/w010",
+        "aliases": [
+          "/archive/production1218-fit-stock-v5/science/out/2026-10-24_PHerc1218_slice-8448-10496_0-patch/meshes/fitted/w010",
+          "/archive/production1218-fit-stock-v5/science/out/2026-10-24_PHerc1218_slice-8448-10496_0-patch/meshes/fitted/w010_spliced"
+        ],
+        "crop_grid_shape": [
+          9,
+          53
+        ],
+        "valid_crop_points": 369,
+        "expected_shape": [
+          27,
+          180,
+          1060
+        ],
+        "resource_eligible": true,
+        "geometry_sha256": [
+          "bbee92643ef55da577b2138453fe5a4268ea05a22a60681f8ca9bb200c626d79",
+          "e2278477b9af0a70417df100dfb6a5490e880d3e3e829fadd74e5dce58800595",
+          "8f32dcc695fec972b0d9b0e0cf68eb827b0c326dfb06c07c3c6bae9d21374835"
+        ]
+      },
+      {
+        "work_key": "24655cb86a8d39faefcf4ecc51991cd41f75646c1a1b815e621bb99fb65ed195",
+        "source_path": "/archive/production1218-fit-stock-v5/science/out/2026-10-24_PHerc1218_slice-8448-10496_0-patch/meshes/fitted/w046",
+        "aliases": [
+          "/archive/production1218-fit-stock-v5/science/out/2026-10-24_PHerc1218_slice-8448-10496_0-patch/meshes/fitted/w046",
+          "/archive/production1218-fit-stock-v5/science/out/2026-10-24_PHerc1218_slice-8448-10496_0-patch/meshes/fitted/w046_spliced"
+        ],
+        "crop_grid_shape": [
+          9,
+          232
+        ],
+        "valid_crop_points": 1504,
+        "expected_shape": [
+          27,
+          180,
+          4640
+        ],
+        "resource_eligible": true,
+        "geometry_sha256": [
+          "1e2974d9e2b8fbc0b1bbf0d0631de821a9e8f6e4c3f0053a889536947ea8dfdf",
+          "e947dbfd73feec1bcb9d84d06d7378cbb8a3bd97f83861dc37038d449a7fa215",
+          "0eadbe40137913ac86a720ee69a7a8d311365fdb2ca58b76d04f1dffa55c1ee8"
+        ]
+      }
+    ],
+    "representative_repetitions": [
+      {
+        "hardware": "mi50",
+        "repetition": 1,
+        "arm_order": [
+          "baseline",
+          "candidate"
+        ]
+      },
+      {
+        "hardware": "mi50",
+        "repetition": 2,
+        "arm_order": [
+          "candidate",
+          "baseline"
+        ]
+      },
+      {
+        "hardware": "mi50",
+        "repetition": 3,
+        "arm_order": [
+          "baseline",
+          "candidate"
+        ]
+      },
+      {
+        "hardware": "r9700",
+        "repetition": 1,
+        "arm_order": [
+          "baseline",
+          "candidate"
+        ]
+      },
+      {
+        "hardware": "r9700",
+        "repetition": 2,
+        "arm_order": [
+          "candidate",
+          "baseline"
+        ]
+      },
+      {
+        "hardware": "r9700",
+        "repetition": 3,
+        "arm_order": [
+          "baseline",
+          "candidate"
+        ]
+      },
+      {
+        "hardware": "rtx",
+        "repetition": 1,
+        "arm_order": [
+          "baseline",
+          "candidate"
+        ]
+      },
+      {
+        "hardware": "rtx",
+        "repetition": 2,
+        "arm_order": [
+          "candidate",
+          "baseline"
+        ]
+      },
+      {
+        "hardware": "rtx",
+        "repetition": 3,
+        "arm_order": [
+          "baseline",
+          "candidate"
+        ]
+      }
+    ],
+    "missing_case": "Separate CPU-only actual-render absent-chunk/edge fixture; not included as scientific production or GPU throughput."
+  }
+}

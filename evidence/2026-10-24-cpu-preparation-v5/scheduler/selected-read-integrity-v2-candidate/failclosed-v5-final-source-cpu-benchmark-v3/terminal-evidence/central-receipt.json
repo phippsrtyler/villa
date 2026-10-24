@@ -1,0 +1,1189 @@
+{
+  "id": "selected-read-final-source-v5-cpu-preparation-v3",
+  "digest": "30eb0b1b7b3c7eae2f4da8b2334bf4f88edf202b71bc7599fc4e223c563e12cd",
+  "worker": "linux-cpu",
+  "started": 1792867507.9578176,
+  "validated": true,
+  "returncode": 0,
+  "pid": 341630,
+  "outputs": [
+    {
+      "guard": "/mnt/oldpc/vesuvius_park/selected-read-final-source-v5-cpu-preparation-v3/outer.log.json",
+      "receipt": {
+        "pid": 341631,
+        "owned_pgid": 341631,
+        "command": [
+          "python3",
+          "-B",
+          "/mnt/oldpc/vesuvius_park/production-local-fit-stock-v2-source/production_fit_host_supervisor_v2.py",
+          "--contract",
+          "/mnt/oldpc/vesuvius_park/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-launch-contract.json",
+          "--sha256",
+          "c736607f02ded3149d85b701221ec9e47013e521f0b70d1fe1d2a5192027a9e7"
+        ],
+        "rc": 0,
+        "reason": null,
+        "peak_group_rss_bytes": 18882560,
+        "final_group_rss_bytes": 0,
+        "wall_s": 361.3556880320248,
+        "predeclared_successful_exit_shutdown_grace_s": 2.0,
+        "rss_accounting": "sum of resident pages for processes in owned POSIX process group; shared pages may count more than once",
+        "diagnostics": {
+          "descendant_detection": [],
+          "after_cleanup": [],
+          "recent_poll_snapshots": [
+            {
+              "at_monotonic": 138751.020930657,
+              "members": [
+                {
+                  "pid": 341631,
+                  "ppid": 341630,
+                  "pgid": 341631,
+                  "session": 341631,
+                  "start_ticks": 13839345,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "python3",
+                    "-B",
+                    "/mnt/oldpc/vesuvius_park/production-local-fit-stock-v2-source/production_fit_host_supervisor_v2.py",
+                    "--contract",
+                    "/mnt/oldpc/vesuvius_park/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-launch-contract.json",
+                    "--sha256",
+                    "c736607f02ded3149d85b701221ec9e47013e521f0b70d1fe1d2a5192027a9e7"
+                  ],
+                  "state_after_cmdline": "S"
+                }
+              ]
+            },
+            {
+              "at_monotonic": 138751.552930921,
+              "members": [
+                {
+                  "pid": 341631,
+                  "ppid": 341630,
+                  "pgid": 341631,
+                  "session": 341631,
+                  "start_ticks": 13839345,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "python3",
+                    "-B",
+                    "/mnt/oldpc/vesuvius_park/production-local-fit-stock-v2-source/production_fit_host_supervisor_v2.py",
+                    "--contract",
+                    "/mnt/oldpc/vesuvius_park/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-launch-contract.json",
+                    "--sha256",
+                    "c736607f02ded3149d85b701221ec9e47013e521f0b70d1fe1d2a5192027a9e7"
+                  ],
+                  "state_after_cmdline": "S"
+                }
+              ]
+            },
+            {
+              "at_monotonic": 138752.083843293,
+              "members": [
+                {
+                  "pid": 341631,
+                  "ppid": 341630,
+                  "pgid": 341631,
+                  "session": 341631,
+                  "start_ticks": 13839345,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "python3",
+                    "-B",
+                    "/mnt/oldpc/vesuvius_park/production-local-fit-stock-v2-source/production_fit_host_supervisor_v2.py",
+                    "--contract",
+                    "/mnt/oldpc/vesuvius_park/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-launch-contract.json",
+                    "--sha256",
+                    "c736607f02ded3149d85b701221ec9e47013e521f0b70d1fe1d2a5192027a9e7"
+                  ],
+                  "state_after_cmdline": "S"
+                }
+              ]
+            },
+            {
+              "at_monotonic": 138752.615399626,
+              "members": [
+                {
+                  "pid": 341631,
+                  "ppid": 341630,
+                  "pgid": 341631,
+                  "session": 341631,
+                  "start_ticks": 13839345,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "python3",
+                    "-B",
+                    "/mnt/oldpc/vesuvius_park/production-local-fit-stock-v2-source/production_fit_host_supervisor_v2.py",
+                    "--contract",
+                    "/mnt/oldpc/vesuvius_park/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-launch-contract.json",
+                    "--sha256",
+                    "c736607f02ded3149d85b701221ec9e47013e521f0b70d1fe1d2a5192027a9e7"
+                  ],
+                  "state_after_cmdline": "S"
+                }
+              ]
+            },
+            {
+              "at_monotonic": 138753.147266688,
+              "members": [
+                {
+                  "pid": 341631,
+                  "ppid": 341630,
+                  "pgid": 341631,
+                  "session": 341631,
+                  "start_ticks": 13839345,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "python3",
+                    "-B",
+                    "/mnt/oldpc/vesuvius_park/production-local-fit-stock-v2-source/production_fit_host_supervisor_v2.py",
+                    "--contract",
+                    "/mnt/oldpc/vesuvius_park/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-launch-contract.json",
+                    "--sha256",
+                    "c736607f02ded3149d85b701221ec9e47013e521f0b70d1fe1d2a5192027a9e7"
+                  ],
+                  "state_after_cmdline": "S"
+                }
+              ]
+            },
+            {
+              "at_monotonic": 138753.681106772,
+              "members": [
+                {
+                  "pid": 341631,
+                  "ppid": 341630,
+                  "pgid": 341631,
+                  "session": 341631,
+                  "start_ticks": 13839345,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "python3",
+                    "-B",
+                    "/mnt/oldpc/vesuvius_park/production-local-fit-stock-v2-source/production_fit_host_supervisor_v2.py",
+                    "--contract",
+                    "/mnt/oldpc/vesuvius_park/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-launch-contract.json",
+                    "--sha256",
+                    "c736607f02ded3149d85b701221ec9e47013e521f0b70d1fe1d2a5192027a9e7"
+                  ],
+                  "state_after_cmdline": "S"
+                }
+              ]
+            },
+            {
+              "at_monotonic": 138754.215035895,
+              "members": [
+                {
+                  "pid": 341631,
+                  "ppid": 341630,
+                  "pgid": 341631,
+                  "session": 341631,
+                  "start_ticks": 13839345,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "python3",
+                    "-B",
+                    "/mnt/oldpc/vesuvius_park/production-local-fit-stock-v2-source/production_fit_host_supervisor_v2.py",
+                    "--contract",
+                    "/mnt/oldpc/vesuvius_park/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-launch-contract.json",
+                    "--sha256",
+                    "c736607f02ded3149d85b701221ec9e47013e521f0b70d1fe1d2a5192027a9e7"
+                  ],
+                  "state_after_cmdline": "S"
+                }
+              ]
+            },
+            {
+              "at_monotonic": 138754.746893921,
+              "members": [
+                {
+                  "pid": 341631,
+                  "ppid": 341630,
+                  "pgid": 341631,
+                  "session": 341631,
+                  "start_ticks": 13839345,
+                  "state": "Z",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [],
+                  "state_after_cmdline": "Z"
+                }
+              ]
+            }
+          ],
+          "observed_identity_catalog": [
+            {
+              "first_seen_monotonic": 138393.479576351,
+              "pid": 341631,
+              "ppid": 341630,
+              "pgid": 341631,
+              "session": 341631,
+              "start_ticks": 13839345,
+              "state": "Z",
+              "comm": "python3",
+              "cmdline_truncated": false,
+              "cmdline": [],
+              "state_after_cmdline": "Z",
+              "last_seen_monotonic": 138754.746893921
+            }
+          ],
+          "natural_shutdown": [],
+          "identity_fields": "pid, ppid, pgid, session, Linux /proc starttime ticks, state, comm, cmdline; cmdline reads checked against same start ticks",
+          "decision_contract": "New prospective bounded natural drain only after direct child rc0. Continuous RSS/absolute deadline checks; final strict no-live-owned-group; all nonzero/survivor/resource failures retain owned-group TERM/KILL cleanup. No process-name exemptions; old failures unchanged."
+        }
+      }
+    },
+    {
+      "guard": "/mnt/oldpc/vesuvius_park/selected-read-final-source-v5-cpu-preparation-v3/supervisor-guard.json",
+      "receipt": {
+        "schema": 1,
+        "rc": 0,
+        "reason": null,
+        "final_group_rss_bytes": 0,
+        "inner_cleanup_verified": true,
+        "cancelled_signal": null,
+        "source_sha256": "1bab7f93e26ddced1581153cdc77e7937087da17c894c00f0c49ab10e9baecbf",
+        "scope": "new-band stock production fit; no performance comparison",
+        "contract_sha256": "c736607f02ded3149d85b701221ec9e47013e521f0b70d1fe1d2a5192027a9e7"
+      }
+    },
+    {
+      "guard": "/mnt/oldpc/vesuvius_park/selected-read-final-source-v5-cpu-preparation-v3/guard.log.json",
+      "receipt": {
+        "pid": 167081,
+        "owned_pgid": 167081,
+        "command": [
+          "python3",
+          "-B",
+          "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/run_pinned_paired_benchmark.py",
+          "--config",
+          "/archive/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-sequence.json",
+          "--runner",
+          "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/paired_preparation_runner_v5.py",
+          "--resolution-check",
+          "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/library_resolution_preflight.py",
+          "--library-sha256",
+          "e4287923b8468a157eba6895d82c17a2f00105eeda32a6c9ec6755673b52231d",
+          "--renderer-sha256",
+          "1eb7d7248c2e52eb79b8c0c3be0daf02411ffbe7b448600e4356c2435f48561a"
+        ],
+        "rc": 0,
+        "reason": null,
+        "peak_group_rss_bytes": 44847104,
+        "final_group_rss_bytes": 0,
+        "wall_s": 360.70924819400534,
+        "predeclared_successful_exit_shutdown_grace_s": 1.0,
+        "rss_accounting": "sum of resident pages for processes in owned POSIX process group; shared pages may count more than once",
+        "diagnostics": {
+          "descendant_detection": [],
+          "after_cleanup": [],
+          "recent_poll_snapshots": [
+            {
+              "at_monotonic": 138753.839523895,
+              "members": [
+                {
+                  "pid": 167081,
+                  "ppid": 167075,
+                  "pgid": 167081,
+                  "session": 167081,
+                  "start_ticks": 13839384,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "python3",
+                    "-B",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/run_pinned_paired_benchmark.py",
+                    "--config",
+                    "/archive/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-sequence.json",
+                    "--runner",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/paired_preparation_runner_v5.py",
+                    "--resolution-check",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/library_resolution_preflight.py",
+                    "--library-sha256",
+                    "e4287923b8468a157eba6895d82c17a2f00105eeda32a6c9ec6755673b52231d",
+                    "--renderer-sha256",
+                    "1eb7d7248c2e52eb79b8c0c3be0daf02411ffbe7b448600e4356c2435f48561a"
+                  ],
+                  "state_after_cmdline": "S"
+                },
+                {
+                  "pid": 167771,
+                  "ppid": 167081,
+                  "pgid": 167081,
+                  "session": 167081,
+                  "start_ticks": 13874888,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "/usr/bin/python3",
+                    "-B",
+                    "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                    "--seconds",
+                    "180",
+                    "--gib",
+                    "4",
+                    "--shutdown-grace-s",
+                    "2",
+                    "--log",
+                    "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-1/guard.json",
+                    "--",
+                    "/usr/bin/python3",
+                    "-B",
+                    "/archive/selected-read-v5-optin-integration-qualification-v2-source/producer.py",
+                    "--contract",
+                    "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-1/contract.json",
+                    "--sha256",
+                    "7969246613a809bc156fc6b077b38d55e5f2906b4c66e0daf5c8c6fbcd79f5a3"
+                  ],
+                  "state_after_cmdline": "S"
+                }
+              ]
+            },
+            {
+              "at_monotonic": 138753.941037319,
+              "members": [
+                {
+                  "pid": 167081,
+                  "ppid": 167075,
+                  "pgid": 167081,
+                  "session": 167081,
+                  "start_ticks": 13839384,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "python3",
+                    "-B",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/run_pinned_paired_benchmark.py",
+                    "--config",
+                    "/archive/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-sequence.json",
+                    "--runner",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/paired_preparation_runner_v5.py",
+                    "--resolution-check",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/library_resolution_preflight.py",
+                    "--library-sha256",
+                    "e4287923b8468a157eba6895d82c17a2f00105eeda32a6c9ec6755673b52231d",
+                    "--renderer-sha256",
+                    "1eb7d7248c2e52eb79b8c0c3be0daf02411ffbe7b448600e4356c2435f48561a"
+                  ],
+                  "state_after_cmdline": "S"
+                },
+                {
+                  "pid": 167771,
+                  "ppid": 167081,
+                  "pgid": 167081,
+                  "session": 167081,
+                  "start_ticks": 13874888,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "/usr/bin/python3",
+                    "-B",
+                    "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                    "--seconds",
+                    "180",
+                    "--gib",
+                    "4",
+                    "--shutdown-grace-s",
+                    "2",
+                    "--log",
+                    "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-1/guard.json",
+                    "--",
+                    "/usr/bin/python3",
+                    "-B",
+                    "/archive/selected-read-v5-optin-integration-qualification-v2-source/producer.py",
+                    "--contract",
+                    "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-1/contract.json",
+                    "--sha256",
+                    "7969246613a809bc156fc6b077b38d55e5f2906b4c66e0daf5c8c6fbcd79f5a3"
+                  ],
+                  "state_after_cmdline": "S"
+                }
+              ]
+            },
+            {
+              "at_monotonic": 138754.042990378,
+              "members": [
+                {
+                  "pid": 167081,
+                  "ppid": 167075,
+                  "pgid": 167081,
+                  "session": 167081,
+                  "start_ticks": 13839384,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "python3",
+                    "-B",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/run_pinned_paired_benchmark.py",
+                    "--config",
+                    "/archive/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-sequence.json",
+                    "--runner",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/paired_preparation_runner_v5.py",
+                    "--resolution-check",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/library_resolution_preflight.py",
+                    "--library-sha256",
+                    "e4287923b8468a157eba6895d82c17a2f00105eeda32a6c9ec6755673b52231d",
+                    "--renderer-sha256",
+                    "1eb7d7248c2e52eb79b8c0c3be0daf02411ffbe7b448600e4356c2435f48561a"
+                  ],
+                  "state_after_cmdline": "S"
+                },
+                {
+                  "pid": 167771,
+                  "ppid": 167081,
+                  "pgid": 167081,
+                  "session": 167081,
+                  "start_ticks": 13874888,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "/usr/bin/python3",
+                    "-B",
+                    "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                    "--seconds",
+                    "180",
+                    "--gib",
+                    "4",
+                    "--shutdown-grace-s",
+                    "2",
+                    "--log",
+                    "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-1/guard.json",
+                    "--",
+                    "/usr/bin/python3",
+                    "-B",
+                    "/archive/selected-read-v5-optin-integration-qualification-v2-source/producer.py",
+                    "--contract",
+                    "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-1/contract.json",
+                    "--sha256",
+                    "7969246613a809bc156fc6b077b38d55e5f2906b4c66e0daf5c8c6fbcd79f5a3"
+                  ],
+                  "state_after_cmdline": "S"
+                }
+              ]
+            },
+            {
+              "at_monotonic": 138754.14496684,
+              "members": [
+                {
+                  "pid": 167081,
+                  "ppid": 167075,
+                  "pgid": 167081,
+                  "session": 167081,
+                  "start_ticks": 13839384,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "python3",
+                    "-B",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/run_pinned_paired_benchmark.py",
+                    "--config",
+                    "/archive/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-sequence.json",
+                    "--runner",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/paired_preparation_runner_v5.py",
+                    "--resolution-check",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/library_resolution_preflight.py",
+                    "--library-sha256",
+                    "e4287923b8468a157eba6895d82c17a2f00105eeda32a6c9ec6755673b52231d",
+                    "--renderer-sha256",
+                    "1eb7d7248c2e52eb79b8c0c3be0daf02411ffbe7b448600e4356c2435f48561a"
+                  ],
+                  "state_after_cmdline": "S"
+                },
+                {
+                  "pid": 167771,
+                  "ppid": 167081,
+                  "pgid": 167081,
+                  "session": 167081,
+                  "start_ticks": 13874888,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "/usr/bin/python3",
+                    "-B",
+                    "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                    "--seconds",
+                    "180",
+                    "--gib",
+                    "4",
+                    "--shutdown-grace-s",
+                    "2",
+                    "--log",
+                    "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-1/guard.json",
+                    "--",
+                    "/usr/bin/python3",
+                    "-B",
+                    "/archive/selected-read-v5-optin-integration-qualification-v2-source/producer.py",
+                    "--contract",
+                    "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-1/contract.json",
+                    "--sha256",
+                    "7969246613a809bc156fc6b077b38d55e5f2906b4c66e0daf5c8c6fbcd79f5a3"
+                  ],
+                  "state_after_cmdline": "S"
+                }
+              ]
+            },
+            {
+              "at_monotonic": 138754.246918395,
+              "members": [
+                {
+                  "pid": 167081,
+                  "ppid": 167075,
+                  "pgid": 167081,
+                  "session": 167081,
+                  "start_ticks": 13839384,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "python3",
+                    "-B",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/run_pinned_paired_benchmark.py",
+                    "--config",
+                    "/archive/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-sequence.json",
+                    "--runner",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/paired_preparation_runner_v5.py",
+                    "--resolution-check",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/library_resolution_preflight.py",
+                    "--library-sha256",
+                    "e4287923b8468a157eba6895d82c17a2f00105eeda32a6c9ec6755673b52231d",
+                    "--renderer-sha256",
+                    "1eb7d7248c2e52eb79b8c0c3be0daf02411ffbe7b448600e4356c2435f48561a"
+                  ],
+                  "state_after_cmdline": "S"
+                },
+                {
+                  "pid": 167771,
+                  "ppid": 167081,
+                  "pgid": 167081,
+                  "session": 167081,
+                  "start_ticks": 13874888,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "/usr/bin/python3",
+                    "-B",
+                    "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                    "--seconds",
+                    "180",
+                    "--gib",
+                    "4",
+                    "--shutdown-grace-s",
+                    "2",
+                    "--log",
+                    "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-1/guard.json",
+                    "--",
+                    "/usr/bin/python3",
+                    "-B",
+                    "/archive/selected-read-v5-optin-integration-qualification-v2-source/producer.py",
+                    "--contract",
+                    "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-1/contract.json",
+                    "--sha256",
+                    "7969246613a809bc156fc6b077b38d55e5f2906b4c66e0daf5c8c6fbcd79f5a3"
+                  ],
+                  "state_after_cmdline": "S"
+                }
+              ]
+            },
+            {
+              "at_monotonic": 138754.348559111,
+              "members": [
+                {
+                  "pid": 167081,
+                  "ppid": 167075,
+                  "pgid": 167081,
+                  "session": 167081,
+                  "start_ticks": 13839384,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "python3",
+                    "-B",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/run_pinned_paired_benchmark.py",
+                    "--config",
+                    "/archive/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-sequence.json",
+                    "--runner",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/paired_preparation_runner_v5.py",
+                    "--resolution-check",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/library_resolution_preflight.py",
+                    "--library-sha256",
+                    "e4287923b8468a157eba6895d82c17a2f00105eeda32a6c9ec6755673b52231d",
+                    "--renderer-sha256",
+                    "1eb7d7248c2e52eb79b8c0c3be0daf02411ffbe7b448600e4356c2435f48561a"
+                  ],
+                  "state_after_cmdline": "S"
+                },
+                {
+                  "pid": 167771,
+                  "ppid": 167081,
+                  "pgid": 167081,
+                  "session": 167081,
+                  "start_ticks": 13874888,
+                  "state": "S",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "/usr/bin/python3",
+                    "-B",
+                    "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                    "--seconds",
+                    "180",
+                    "--gib",
+                    "4",
+                    "--shutdown-grace-s",
+                    "2",
+                    "--log",
+                    "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-1/guard.json",
+                    "--",
+                    "/usr/bin/python3",
+                    "-B",
+                    "/archive/selected-read-v5-optin-integration-qualification-v2-source/producer.py",
+                    "--contract",
+                    "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-1/contract.json",
+                    "--sha256",
+                    "7969246613a809bc156fc6b077b38d55e5f2906b4c66e0daf5c8c6fbcd79f5a3"
+                  ],
+                  "state_after_cmdline": "S"
+                }
+              ]
+            },
+            {
+              "at_monotonic": 138754.449894848,
+              "members": [
+                {
+                  "pid": 167081,
+                  "ppid": 167075,
+                  "pgid": 167081,
+                  "session": 167081,
+                  "start_ticks": 13839384,
+                  "state": "R",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [
+                    "python3",
+                    "-B",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/run_pinned_paired_benchmark.py",
+                    "--config",
+                    "/archive/selected-read-failclosed-v5-final-source-cpu-benchmark-v3-final/selected-read-final-source-v5-cpu-preparation-v3-sequence.json",
+                    "--runner",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/paired_preparation_runner_v5.py",
+                    "--resolution-check",
+                    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v3-final/library_resolution_preflight.py",
+                    "--library-sha256",
+                    "e4287923b8468a157eba6895d82c17a2f00105eeda32a6c9ec6755673b52231d",
+                    "--renderer-sha256",
+                    "1eb7d7248c2e52eb79b8c0c3be0daf02411ffbe7b448600e4356c2435f48561a"
+                  ],
+                  "state_after_cmdline": "R"
+                }
+              ]
+            },
+            {
+              "at_monotonic": 138754.551065803,
+              "members": [
+                {
+                  "pid": 167081,
+                  "ppid": 167075,
+                  "pgid": 167081,
+                  "session": 167081,
+                  "start_ticks": 13839384,
+                  "state": "Z",
+                  "comm": "python3",
+                  "cmdline_truncated": false,
+                  "cmdline": [],
+                  "state_after_cmdline": "Z"
+                }
+              ]
+            }
+          ],
+          "observed_identity_catalog": [
+            {
+              "first_seen_monotonic": 138393.84469227,
+              "pid": 167081,
+              "ppid": 167075,
+              "pgid": 167081,
+              "session": 167081,
+              "start_ticks": 13839384,
+              "state": "Z",
+              "comm": "python3",
+              "cmdline_truncated": false,
+              "cmdline": [],
+              "state_after_cmdline": "Z",
+              "last_seen_monotonic": 138754.551065803
+            },
+            {
+              "first_seen_monotonic": 138394.047044615,
+              "pid": 167089,
+              "ppid": 167081,
+              "pgid": 167081,
+              "session": 167081,
+              "start_ticks": 13839398,
+              "state": "S",
+              "comm": "python3",
+              "cmdline_truncated": false,
+              "cmdline": [
+                "/usr/bin/python3",
+                "-B",
+                "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                "--seconds",
+                "180",
+                "--gib",
+                "4",
+                "--shutdown-grace-s",
+                "2",
+                "--log",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r1/arms/baseline-0/guard.json",
+                "--",
+                "/usr/bin/python3",
+                "-B",
+                "/archive/selected-read-paired-preparation-v1-source/stock_finite_producer.py",
+                "--contract",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r1/arms/baseline-0/contract.json",
+                "--sha256",
+                "ff3612e54166cf65958b6f6c32e0dc8fa3f394936d021808f5cebdf9715298d8"
+              ],
+              "state_after_cmdline": "S",
+              "last_seen_monotonic": 138449.160340587
+            },
+            {
+              "first_seen_monotonic": 138449.261358255,
+              "pid": 167151,
+              "ppid": 167081,
+              "pgid": 167081,
+              "session": 167081,
+              "start_ticks": 13844919,
+              "state": "S",
+              "comm": "python3",
+              "cmdline_truncated": false,
+              "cmdline": [
+                "/usr/bin/python3",
+                "-B",
+                "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                "--seconds",
+                "180",
+                "--gib",
+                "4",
+                "--shutdown-grace-s",
+                "2",
+                "--log",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r1/arms/baseline-1/guard.json",
+                "--",
+                "/usr/bin/python3",
+                "-B",
+                "/archive/selected-read-paired-preparation-v1-source/stock_finite_producer.py",
+                "--contract",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r1/arms/baseline-1/contract.json",
+                "--sha256",
+                "089fce0290150bf6704a1d2099cad2115c65be55c76ef9e23c80d971194bc569"
+              ],
+              "state_after_cmdline": "S",
+              "last_seen_monotonic": 138504.866689275
+            },
+            {
+              "first_seen_monotonic": 138504.968544748,
+              "pid": 167213,
+              "ppid": 167081,
+              "pgid": 167081,
+              "session": 167081,
+              "start_ticks": 13850492,
+              "state": "S",
+              "comm": "python3",
+              "cmdline_truncated": false,
+              "cmdline": [
+                "/usr/bin/python3",
+                "-B",
+                "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                "--seconds",
+                "180",
+                "--gib",
+                "4",
+                "--shutdown-grace-s",
+                "2",
+                "--log",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r1/arms/candidate-0/guard.json",
+                "--",
+                "/usr/bin/python3",
+                "-B",
+                "/archive/selected-read-v5-optin-integration-qualification-v2-source/producer.py",
+                "--contract",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r1/arms/candidate-0/contract.json",
+                "--sha256",
+                "549485062e0e351b824ecad851516b26ef85b9e44fea579e9298c3fecb4b37a7"
+              ],
+              "state_after_cmdline": "S",
+              "last_seen_monotonic": 138509.954523969
+            },
+            {
+              "first_seen_monotonic": 138510.056208849,
+              "pid": 167275,
+              "ppid": 167081,
+              "pgid": 167081,
+              "session": 167081,
+              "start_ticks": 13851004,
+              "state": "S",
+              "comm": "python3",
+              "cmdline_truncated": false,
+              "cmdline": [
+                "/usr/bin/python3",
+                "-B",
+                "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                "--seconds",
+                "180",
+                "--gib",
+                "4",
+                "--shutdown-grace-s",
+                "2",
+                "--log",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r1/arms/candidate-1/guard.json",
+                "--",
+                "/usr/bin/python3",
+                "-B",
+                "/archive/selected-read-v5-optin-integration-qualification-v2-source/producer.py",
+                "--contract",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r1/arms/candidate-1/contract.json",
+                "--sha256",
+                "2aac3a6b2266e09e0d09f47826cabed746da392e5b89b40da109c3b639a19ede"
+              ],
+              "state_after_cmdline": "S",
+              "last_seen_monotonic": 138515.541512323
+            },
+            {
+              "first_seen_monotonic": 138515.743606946,
+              "pid": 167337,
+              "ppid": 167081,
+              "pgid": 167081,
+              "session": 167081,
+              "start_ticks": 13851568,
+              "state": "S",
+              "comm": "python3",
+              "cmdline_truncated": false,
+              "cmdline": [
+                "/usr/bin/python3",
+                "-B",
+                "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                "--seconds",
+                "180",
+                "--gib",
+                "4",
+                "--shutdown-grace-s",
+                "2",
+                "--log",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r2/arms/candidate-0/guard.json",
+                "--",
+                "/usr/bin/python3",
+                "-B",
+                "/archive/selected-read-v5-optin-integration-qualification-v2-source/producer.py",
+                "--contract",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r2/arms/candidate-0/contract.json",
+                "--sha256",
+                "4c148e0a52af79b5b68161999e86bb14cf1028db40b7723c92acac78e99f28aa"
+              ],
+              "state_after_cmdline": "S",
+              "last_seen_monotonic": 138520.71804208
+            },
+            {
+              "first_seen_monotonic": 138520.819427463,
+              "pid": 167399,
+              "ppid": 167081,
+              "pgid": 167081,
+              "session": 167081,
+              "start_ticks": 13852079,
+              "state": "S",
+              "comm": "python3",
+              "cmdline_truncated": false,
+              "cmdline": [
+                "/usr/bin/python3",
+                "-B",
+                "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                "--seconds",
+                "180",
+                "--gib",
+                "4",
+                "--shutdown-grace-s",
+                "2",
+                "--log",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r2/arms/candidate-1/guard.json",
+                "--",
+                "/usr/bin/python3",
+                "-B",
+                "/archive/selected-read-v5-optin-integration-qualification-v2-source/producer.py",
+                "--contract",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r2/arms/candidate-1/contract.json",
+                "--sha256",
+                "60d08371229d840ed140fd26acbba30fce322cc1184fa0ad7d82a1479b4274d8"
+              ],
+              "state_after_cmdline": "S",
+              "last_seen_monotonic": 138526.302047565
+            },
+            {
+              "first_seen_monotonic": 138526.504858178,
+              "pid": 167461,
+              "ppid": 167081,
+              "pgid": 167081,
+              "session": 167081,
+              "start_ticks": 13852640,
+              "state": "S",
+              "comm": "python3",
+              "cmdline_truncated": false,
+              "cmdline": [
+                "/usr/bin/python3",
+                "-B",
+                "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                "--seconds",
+                "180",
+                "--gib",
+                "4",
+                "--shutdown-grace-s",
+                "2",
+                "--log",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r2/arms/baseline-0/guard.json",
+                "--",
+                "/usr/bin/python3",
+                "-B",
+                "/archive/selected-read-paired-preparation-v1-source/stock_finite_producer.py",
+                "--contract",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r2/arms/baseline-0/contract.json",
+                "--sha256",
+                "fee55c4f4128385a0b393aa031548c70c3ffcc2b2865bde255707bffa545956b"
+              ],
+              "state_after_cmdline": "S",
+              "last_seen_monotonic": 138580.513407783
+            },
+            {
+              "first_seen_monotonic": 138580.614692682,
+              "pid": 167523,
+              "ppid": 167081,
+              "pgid": 167081,
+              "session": 167081,
+              "start_ticks": 13858060,
+              "state": "S",
+              "comm": "python3",
+              "cmdline_truncated": false,
+              "cmdline": [
+                "/usr/bin/python3",
+                "-B",
+                "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                "--seconds",
+                "180",
+                "--gib",
+                "4",
+                "--shutdown-grace-s",
+                "2",
+                "--log",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r2/arms/baseline-1/guard.json",
+                "--",
+                "/usr/bin/python3",
+                "-B",
+                "/archive/selected-read-paired-preparation-v1-source/stock_finite_producer.py",
+                "--contract",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r2/arms/baseline-1/contract.json",
+                "--sha256",
+                "96341bcfa87b38df16eebe1f994b950e346ab094b08a03bf6bb16250b6d868a5"
+              ],
+              "state_after_cmdline": "S",
+              "last_seen_monotonic": 138634.768784986
+            },
+            {
+              "first_seen_monotonic": 138634.870286199,
+              "pid": 167585,
+              "ppid": 167081,
+              "pgid": 167081,
+              "session": 167081,
+              "start_ticks": 13863482,
+              "state": "S",
+              "comm": "python3",
+              "cmdline_truncated": false,
+              "cmdline": [
+                "/usr/bin/python3",
+                "-B",
+                "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                "--seconds",
+                "180",
+                "--gib",
+                "4",
+                "--shutdown-grace-s",
+                "2",
+                "--log",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/baseline-0/guard.json",
+                "--",
+                "/usr/bin/python3",
+                "-B",
+                "/archive/selected-read-paired-preparation-v1-source/stock_finite_producer.py",
+                "--contract",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/baseline-0/contract.json",
+                "--sha256",
+                "8e57713b6b60a79c2cc2e9dcd1acda8661835db78a7b7bc1fbeb6503b6d3aa05"
+              ],
+              "state_after_cmdline": "S",
+              "last_seen_monotonic": 138688.988185657
+            },
+            {
+              "first_seen_monotonic": 138689.089305571,
+              "pid": 167647,
+              "ppid": 167081,
+              "pgid": 167081,
+              "session": 167081,
+              "start_ticks": 13868904,
+              "state": "S",
+              "comm": "python3",
+              "cmdline_truncated": false,
+              "cmdline": [
+                "/usr/bin/python3",
+                "-B",
+                "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                "--seconds",
+                "180",
+                "--gib",
+                "4",
+                "--shutdown-grace-s",
+                "2",
+                "--log",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/baseline-1/guard.json",
+                "--",
+                "/usr/bin/python3",
+                "-B",
+                "/archive/selected-read-paired-preparation-v1-source/stock_finite_producer.py",
+                "--contract",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/baseline-1/contract.json",
+                "--sha256",
+                "7b178d7d1d24cacfaa7f262c825e178c9dc6b3a1e1afd147d95ec2cbde0d3253"
+              ],
+              "state_after_cmdline": "S",
+              "last_seen_monotonic": 138743.689267384
+            },
+            {
+              "first_seen_monotonic": 138743.790497851,
+              "pid": 167709,
+              "ppid": 167081,
+              "pgid": 167081,
+              "session": 167081,
+              "start_ticks": 13874377,
+              "state": "S",
+              "comm": "python3",
+              "cmdline_truncated": false,
+              "cmdline": [
+                "/usr/bin/python3",
+                "-B",
+                "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                "--seconds",
+                "180",
+                "--gib",
+                "4",
+                "--shutdown-grace-s",
+                "2",
+                "--log",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-0/guard.json",
+                "--",
+                "/usr/bin/python3",
+                "-B",
+                "/archive/selected-read-v5-optin-integration-qualification-v2-source/producer.py",
+                "--contract",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-0/contract.json",
+                "--sha256",
+                "ebe67d9513886cd3ad0f013eca2d5e1d1633612469951b185680963a41195a66"
+              ],
+              "state_after_cmdline": "S",
+              "last_seen_monotonic": 138748.761337908
+            },
+            {
+              "first_seen_monotonic": 138748.964196667,
+              "pid": 167771,
+              "ppid": 167081,
+              "pgid": 167081,
+              "session": 167081,
+              "start_ticks": 13874888,
+              "state": "S",
+              "comm": "python3",
+              "cmdline_truncated": false,
+              "cmdline": [
+                "/usr/bin/python3",
+                "-B",
+                "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+                "--seconds",
+                "180",
+                "--gib",
+                "4",
+                "--shutdown-grace-s",
+                "2",
+                "--log",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-1/guard.json",
+                "--",
+                "/usr/bin/python3",
+                "-B",
+                "/archive/selected-read-v5-optin-integration-qualification-v2-source/producer.py",
+                "--contract",
+                "/archive/selected-read-final-source-v5-cpu-preparation-v3/science/r3/arms/candidate-1/contract.json",
+                "--sha256",
+                "7969246613a809bc156fc6b077b38d55e5f2906b4c66e0daf5c8c6fbcd79f5a3"
+              ],
+              "state_after_cmdline": "S",
+              "last_seen_monotonic": 138754.348559111
+            }
+          ],
+          "natural_shutdown": [],
+          "identity_fields": "pid, ppid, pgid, session, Linux /proc starttime ticks, state, comm, cmdline; cmdline reads checked against same start ticks",
+          "decision_contract": "New prospective bounded natural drain only after direct child rc0. Continuous RSS/absolute deadline checks; final strict no-live-owned-group; all nonzero/survivor/resource failures retain owned-group TERM/KILL cleanup. No process-name exemptions; old failures unchanged."
+        }
+      }
+    },
+    {
+      "path": "/mnt/oldpc/vesuvius_park/selected-read-final-source-v5-cpu-preparation-v3/science/r1/pair.json",
+      "bytes": 120801,
+      "sha256": "5dcf73181d4ea4f6440fe4f349d198bb39e50f9f62971845d5f285a11fd0bc1c"
+    },
+    {
+      "path": "/mnt/oldpc/vesuvius_park/selected-read-final-source-v5-cpu-preparation-v3/science/r2/pair.json",
+      "bytes": 120798,
+      "sha256": "34033c359226412422b474e37bf9025d21b982caad8d4c18cfcea821ff524d9b"
+    },
+    {
+      "path": "/mnt/oldpc/vesuvius_park/selected-read-final-source-v5-cpu-preparation-v3/science/r3/pair.json",
+      "bytes": 124692,
+      "sha256": "960e8f612ce8d71f754e161e967a3ce2b20fd527874e9adcb8c46b0b9f619150"
+    },
+    {
+      "path": "/mnt/oldpc/vesuvius_park/selected-read-final-source-v5-cpu-preparation-v3/cpu-paired-summary.json",
+      "bytes": 393199,
+      "sha256": "232f800b3967b299d20c9940fdca02030aaf85255a7c402315fc59885697554a"
+    },
+    {
+      "path": "/mnt/oldpc/vesuvius_park/selected-read-final-source-v5-cpu-preparation-v3/linker-resolution.json",
+      "bytes": 16388,
+      "sha256": "ef34cc3eea8babd262f440392d3a767223b7b45e86a15333b09ca08bd39c3a89"
+    },
+    {
+      "path": "/mnt/oldpc/vesuvius_park/selected-read-final-source-v5-cpu-preparation-v3/identity.json",
+      "bytes": 992,
+      "sha256": "59d3d28b5b4a80794ebe4c71ee3c73df930aab9b39c2cfbdad0a739f721ba27a"
+    },
+    {
+      "path": "/mnt/oldpc/vesuvius_park/selected-read-final-source-v5-cpu-preparation-v3/container.log",
+      "bytes": 24196,
+      "sha256": "4cbd6a7c0745aadd7ace4e8220bab6a2963e0bd369ca60a238ecc344acaebb9f"
+    }
+  ],
+  "ended": 1792867872.0356336
+}

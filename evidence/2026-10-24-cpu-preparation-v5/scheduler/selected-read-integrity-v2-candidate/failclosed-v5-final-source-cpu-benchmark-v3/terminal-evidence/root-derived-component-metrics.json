@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "source_summary_sha256": "232f800b3967b299d20c9940fdca02030aaf85255a7c402315fc59885697554a",
+  "scope": "Linux CPU preparation, two fixed crops, AB/BA/AB; not GPU or whole-pipeline performance",
+  "pairs": [
+    {
+      "pair": 1,
+      "baseline_seconds": 110.8951537689718,
+      "candidate_seconds": 10.610299902007682,
+      "ratio": 10.451651206200891,
+      "exact_files_per_crop": [
+        38,
+        119
+      ]
+    },
+    {
+      "pair": 2,
+      "baseline_seconds": 108.37020223596483,
+      "candidate_seconds": 10.608923573017819,
+      "ratio": 10.215004518609968,
+      "exact_files_per_crop": [
+        38,
+        119
+      ]
+    },
+    {
+      "pair": 3,
+      "baseline_seconds": 108.89764043601463,
+      "candidate_seconds": 10.609860287979245,
+      "ratio": 10.263814742159557,
+      "exact_files_per_crop": [
+        38,
+        119
+      ]
+    }
+  ],
+  "median_pair_ratio": 10.263814742159557,
+  "production_rollout_complete": false,
+  "pr_ready": false,
+  "raw_evidence_hashes": {
+    "central-receipt.json": "759d9681d79ac87276cc70458bc53d6f91002bc5b1be29b57c49f1285c9ad76d",
+    "cpu-paired-summary.json": "232f800b3967b299d20c9940fdca02030aaf85255a7c402315fc59885697554a",
+    "linker-resolution.json": "ef34cc3eea8babd262f440392d3a767223b7b45e86a15333b09ca08bd39c3a89",
+    "r1-pair.json": "5dcf73181d4ea4f6440fe4f349d198bb39e50f9f62971845d5f285a11fd0bc1c",
+    "r2-pair.json": "34033c359226412422b474e37bf9025d21b982caad8d4c18cfcea821ff524d9b",
+    "r3-pair.json": "960e8f612ce8d71f754e161e967a3ce2b20fd527874e9adcb8c46b0b9f619150",
+    "sequence.json": "81c24b858cd070a270b59d8a47e1d12e0bdb3269caa82afc255d88a62471f0b4"
+  }
+}

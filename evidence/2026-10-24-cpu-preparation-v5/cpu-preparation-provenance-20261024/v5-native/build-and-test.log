@@ -1,0 +1,41 @@
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Configuring done (0.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: /mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/build
+[ 50%] Building CXX object tests/CMakeFiles/test_verified_ct_read.dir/verified_ct_read.cpp.o
+/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-source/volume-cartographer/utils/tests/verified_ct_read.cpp: In function ‘int main(int, char**)’:
+/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-source/volume-cartographer/utils/tests/verified_ct_read.cpp:22:51: warning: ignoring return value of ‘std::optional<utils::ShardBytes> utils::ZarrArray::read_whole_shard(std::span<const long unsigned int>) const’, declared with attribute ‘nodiscard’ [-Wunused-result]
+   22 |   if(mode=="shard") {array.read_whole_shard(index);std::cerr<<"unexpected bypass accepted\n";return 3;}
+      |                                                   ^
+In file included from /mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-source/volume-cartographer/utils/tests/verified_ct_read.cpp:1:
+/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/compile-include/utils/zarr.hpp:809:5: note: declared here
+  809 |     read_whole_shard(std::span<const std::size_t> chunk_indices) const;
+      |     ^~~~~~~~~~~~~~~~
+/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-source/volume-cartographer/utils/tests/verified_ct_read.cpp:27:35: warning: ignoring return value of ‘std::optional<std::vector<std::byte> > utils::ZarrArray::read_chunk_encoded(std::span<const long unsigned int>) const’, declared with attribute ‘nodiscard’ [-Wunused-result]
+   27 |    array.read_chunk_encoded(index);return 3;
+      |                                   ^
+/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/compile-include/utils/zarr.hpp:632:5: note: declared here
+  632 |     read_chunk_encoded(std::span<const std::size_t> chunk_indices) const;
+      |     ^~~~~~~~~~~~~~~~~~
+/mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-source/volume-cartographer/utils/tests/verified_ct_read.cpp:30:59: warning: ignoring return value of ‘std::optional<std::vector<std::byte> > utils::ZarrArray::read_chunk_encoded(std::span<const long unsigned int>) const’, declared with attribute ‘nodiscard’ [-Wunused-result]
+   30 |    for(int n=0;n<65536;++n)array.read_chunk_encoded(index);
+      |                                                           ^
+/mnt/oldpc/vesuvius_park/selected-read-integrity-v3-source/compile-include/utils/zarr.hpp:632:5: note: declared here
+  632 |     read_chunk_encoded(std::span<const std::size_t> chunk_indices) const;
+      |     ^~~~~~~~~~~~~~~~~~
+[100%] Linking CXX executable verified-ct-read/integrated_reader_fixture
+[100%] Built target test_verified_ct_read
+Internal ctest changing into directory: /mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/build
+Test project /mnt/oldpc/vesuvius_park/selected-read-upstream-failclosed-v5-cpu-qualification/build
+    Start 1: verified_ct_read
+1/1 Test #1: verified_ct_read .................   Passed    5.78 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   5.78 sec

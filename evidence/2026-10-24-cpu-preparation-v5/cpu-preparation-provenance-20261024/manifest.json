@@ -1,0 +1,22 @@
+[
+  {
+    "path": "selected-read-integrity-v2-source/build-provenance.json",
+    "sha256": "4c16f9a27df443a7cf748cfd56c6c97c94d27078885849963f26d9da17fb9896"
+  },
+  {
+    "path": "selected-read-integrity-v3-source/build-provenance.json",
+    "sha256": "e6ee71aef236875906e5bd10d7675816a3d954ee015fdcadb5548209228b3e33"
+  },
+  {
+    "path": "selected-read-integrity-isolated-build-v3/build-report.json",
+    "sha256": "cca3119bc948701ab14b90618b4a2367694d024ad4e874cd049d713fa8870487"
+  },
+  {
+    "path": "selected-read-integrity-isolated-build-v3/integrated-fixture-report.json",
+    "sha256": "aa71ea426ff7b0bfe069afc0469b4be86a38540afa88382c9f0b6d876e536091"
+  },
+  {
+    "path": "selected-read-upstream-cmake-ctest-v1/report.json",
+    "sha256": "e12b61cefef1d62399bcaf7ea393cef829fda6bafe098cfa30aed800d60bc61b"
+  }
+]

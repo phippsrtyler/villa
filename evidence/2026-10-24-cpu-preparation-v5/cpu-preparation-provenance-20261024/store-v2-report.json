@@ -1,0 +1,290 @@
+{
+  "status": "STORE_CONTRACT_V2_CMAKE_CTEST_PASS",
+  "commands": [
+    [
+      "cmake",
+      "-S",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-store-contract-v2-ctest-v1/cmake-source",
+      "-B",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-store-contract-v2-ctest-v1/build",
+      "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    [
+      "cmake",
+      "--build",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-store-contract-v2-ctest-v1/build",
+      "--target",
+      "test_verified_ct_read",
+      "-j2"
+    ],
+    [
+      "ctest",
+      "--test-dir",
+      "/mnt/oldpc/vesuvius_park/selected-read-upstream-store-contract-v2-ctest-v1/build",
+      "-R",
+      "verified_ct_read",
+      "--output-on-failure"
+    ]
+  ],
+  "wall_seconds": 6.617497604995151,
+  "fixture_source": "/mnt/oldpc/vesuvius_park/selected-read-upstream-store-contract-v2-ctest-v1-source/fixture",
+  "fixture_report": {
+    "status": "PASS_INTEGRATED_GUARDED_PUBLIC_ZARR_API",
+    "cases": [
+      {
+        "case": 0,
+        "mode": "encoded",
+        "expected": "abc",
+        "returncode": 0,
+        "events": [
+          {
+            "bytes": 0,
+            "key": "f47f9a239cade4ae267aaf6e466e19ff5e99a32acb15c3cf2b9cbf9311646a2c",
+            "status": "INITIALIZED"
+          },
+          {
+            "bytes": 3,
+            "key": "0/0/0",
+            "status": "VERIFIED_PRESENT"
+          }
+        ]
+      },
+      {
+        "case": 1,
+        "mode": "storage",
+        "expected": "abc",
+        "returncode": 0,
+        "events": [
+          {
+            "bytes": 0,
+            "key": "2ea585311de4cde475b3876f0ddc3ef8ee6008e7f2ec1bd1fd60712451dc2368",
+            "status": "INITIALIZED"
+          },
+          {
+            "bytes": 3,
+            "key": "0/0/0",
+            "status": "VERIFIED_PRESENT"
+          }
+        ]
+      },
+      {
+        "case": 2,
+        "mode": "encoded",
+        "expected": "SHA256 mismatch",
+        "returncode": 7,
+        "events": [
+          {
+            "bytes": 0,
+            "key": "d2a46762bd5397c4217322be149bf120667291b59443a36703653e87f21b23b7",
+            "status": "INITIALIZED"
+          },
+          {
+            "bytes": 0,
+            "key": "0/0/0",
+            "status": "REJECTED"
+          }
+        ]
+      },
+      {
+        "case": 3,
+        "mode": "encoded",
+        "expected": "size mismatch",
+        "returncode": 7,
+        "events": [
+          {
+            "bytes": 0,
+            "key": "eb675ee2fa54065dd153c202d2f23ed46f5e9911afcc8773cfe288ef78954d91",
+            "status": "INITIALIZED"
+          },
+          {
+            "bytes": 0,
+            "key": "0/0/0",
+            "status": "REJECTED"
+          }
+        ]
+      },
+      {
+        "case": 4,
+        "mode": "encoded",
+        "expected": "missing/nonregular",
+        "returncode": 7,
+        "events": [
+          {
+            "bytes": 0,
+            "key": "cea175ba888b4088c4fb1dbc9c2b80e7ca10dece0c78e64cb05a614b77134245",
+            "status": "INITIALIZED"
+          },
+          {
+            "bytes": 0,
+            "key": "0/0/0",
+            "status": "REJECTED"
+          }
+        ]
+      },
+      {
+        "case": 5,
+        "mode": "encoded",
+        "expected": "EXPLICIT_ABSENT",
+        "returncode": 0,
+        "events": [
+          {
+            "bytes": 0,
+            "key": "63929344fb2df4450fe346d3cfe03a7a8d2774757f31acc9aef905731c40852c",
+            "status": "INITIALIZED"
+          },
+          {
+            "bytes": 0,
+            "key": "0/0/0",
+            "status": "EXPLICIT_ABSENT"
+          }
+        ]
+      },
+      {
+        "case": 6,
+        "mode": "encoded",
+        "expected": "source-absent chunk appeared",
+        "returncode": 7,
+        "events": [
+          {
+            "bytes": 0,
+            "key": "736f422706f36fd47ab474949061a62fb41361817573b4613f9955170071c35d",
+            "status": "INITIALIZED"
+          },
+          {
+            "bytes": 0,
+            "key": "0/0/0",
+            "status": "REJECTED"
+          }
+        ]
+      },
+      {
+        "case": 7,
+        "mode": "encoded",
+        "expected": "unlisted CT read",
+        "returncode": 7,
+        "events": [
+          {
+            "bytes": 0,
+            "key": "9554f09b763e7f9e9b20186567036d03b417baaa71057e1e86c2f85a0bae39ce",
+            "status": "INITIALIZED"
+          },
+          {
+            "bytes": 0,
+            "key": "0/0/0",
+            "status": "REJECTED"
+          }
+        ]
+      },
+      {
+        "case": 8,
+        "mode": "shard",
+        "expected": "bypass API forbidden",
+        "returncode": 7,
+        "events": [
+          {
+            "bytes": 0,
+            "key": "a0ef265e35305e8206c41e5bc86f5dc57a2cf833f2a030a65f4a933e93b867d8",
+            "status": "INITIALIZED"
+          },
+          {
+            "bytes": 0,
+            "key": "/mnt/oldpc/vesuvius_park/selected-read-upstream-store-contract-v2-ctest-v1/build/integrated-fixtures-ycnynqly/8/volume/0",
+            "status": "REJECTED_BYPASS"
+          }
+        ]
+      },
+      {
+        "case": 9,
+        "mode": "store",
+        "expected": "alternate store forbidden",
+        "returncode": 7,
+        "events": [
+          {
+            "bytes": 0,
+            "key": "bb32331fd8b1b5befe7725ea1cbba44de57470fd2559d1b42e5c34ae161741a1",
+            "status": "INITIALIZED"
+          },
+          {
+            "bytes": 0,
+            "key": "alternate-store",
+            "status": "REJECTED_STORE"
+          }
+        ]
+      },
+      {
+        "case": 10,
+        "mode": "store_registry",
+        "expected": "alternate store forbidden",
+        "returncode": 7,
+        "events": [
+          {
+            "bytes": 0,
+            "key": "2f764ab6025bad14c5e8455c4f8ac47ce7833b083d9338b41a5a8fd06a4b776b",
+            "status": "INITIALIZED"
+          },
+          {
+            "bytes": 0,
+            "key": "alternate-store",
+            "status": "REJECTED_STORE"
+          }
+        ]
+      },
+      {
+        "case": 11,
+        "mode": "level",
+        "expected": "unapproved CT level",
+        "returncode": 7,
+        "events": [
+          {
+            "bytes": 0,
+            "key": "8e73117b9a52e6401064f28e330504d0a6e727b153a70598d09ed90b62791ebf",
+            "status": "INITIALIZED"
+          },
+          {
+            "bytes": 0,
+            "key": "0/0/0",
+            "status": "REJECTED"
+          }
+        ]
+      },
+      {
+        "case": "init_write",
+        "returncode": 86
+      },
+      {
+        "case": "read_write",
+        "returncode": 86
+      },
+      {
+        "case": "event_cap",
+        "returncode": 86
+      },
+      {
+        "case": "bad_sha",
+        "returncode": 86
+      },
+      {
+        "case": "incomplete",
+        "returncode": 86
+      },
+      {
+        "case": "swallowed_read_failure_has_REJECTED",
+        "returncode": 0
+      },
+      {
+        "case": "absent_opt_in_stock",
+        "returncode": 0
+      },
+      {
+        "case": "store_stock_works_without_opt_in",
+        "returncode": 0
+      },
+      {
+        "case": "store_registry_stock_works_without_opt_in",
+        "returncode": 0
+      }
+    ],
+    "scope": "Actual guarded libutils public API; no renderer or GPU; exact renderer I/O reconciliation remains required."
+  },
+  "scope": "New unique utils/tests subtree compiles the v2 actual FileSystemStore fixture and runs its guarded rejection/default Store success cases against the already-qualified imported libutils. This is not a fresh library build, full-repository CMake, renderer integration, GPU run, or performance claim."
+}

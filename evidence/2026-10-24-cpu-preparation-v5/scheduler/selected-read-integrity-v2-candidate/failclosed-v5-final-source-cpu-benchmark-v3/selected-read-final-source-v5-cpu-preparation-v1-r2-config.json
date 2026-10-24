@@ -1,0 +1,51 @@
+{
+  "output": "/archive/selected-read-final-source-v5-cpu-preparation-v1/science/r2",
+  "order": [
+    "candidate",
+    "baseline"
+  ],
+  "crops": [
+    {
+      "work_key": "59a887eef7e8385596ae84f1a9296db306439ce1ed09ab78aaf331360e3de20b",
+      "contract": "/archive/selected-read-paired-preparation-v1-source/crop-0-contract.json",
+      "expected_shape": [
+        27,
+        180,
+        1060
+      ]
+    },
+    {
+      "work_key": "24655cb86a8d39faefcf4ecc51991cd41f75646c1a1b815e621bb99fb65ed195",
+      "contract": "/archive/selected-read-paired-preparation-v1-source/crop-1-contract.json",
+      "expected_shape": [
+        27,
+        180,
+        4640
+      ]
+    }
+  ],
+  "baseline_source": "/archive/selected-read-paired-preparation-v1-source/stock_finite_producer.py",
+  "candidate_source": "/archive/selected-read-v5-optin-integration-qualification-v2-source/producer.py",
+  "manifest": "/archive/selected-read-render-qualification-v4-source/verified-ct-manifest.json",
+  "view": "/archive/production-1218-contiguous-ct-metadata-view-v4/science/volume.zarr",
+  "candidate_library": "/archive/selected-read-upstream-failclosed-v5-cpu-qualification/libutils.so",
+  "candidate_library_path": "/archive/selected-read-upstream-failclosed-v5-cpu-qualification:/archive/production-renderer-library-restore-v5/science/lib",
+  "bounded_guard": "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py",
+  "pins": {
+    "/archive/selected-read-paired-preparation-v1-source/stock_finite_producer.py": "2560ccea384e7c830e45899fa27f22bc8c18be948457581ac7350469bef7e036",
+    "/archive/selected-read-render-qualification-v4-source/verified-ct-manifest.json": "2563183df9d745139054fd59ad668d2089724b4df3609a6a48f6d9a757b22201",
+    "/work/takeover/scheduler/shutdown-candidate-20261023-v1/bounded_process_shutdown_candidate.py": "51217914872eca0027b570d900f50f5c5b6370d84ff5e5b3b1832d967f09fc1b",
+    "/archive/selected-read-paired-preparation-v1-source/crop-0-contract.json": "6c00042896b4ec33105d6d9d43cab7c86c00cfc985622b4bc4cf3192283d2ade",
+    "/archive/selected-read-paired-preparation-v1-source/crop-1-contract.json": "4bcd3f118d8e5abdb9201be3099bee53051f40f4103080d3564d95a79471f03b",
+    "/archive/selected-read-v5-optin-integration-qualification-v2-source/producer.py": "8ec9c25525a7f55cfdc3b179c2b0dec2ed16eb1603fe05c196ba2e43df4af2ea",
+    "/archive/selected-read-v5-optin-integration-qualification-v2-source/audit_qualification_ledger.py": "cf19ae7b026a39828d542f5e1de443982fd22af08d2d50b75c5cc7755ce4b384",
+    "/archive/selected-read-v5-optin-integration-qualification-v2-source/requested_crop_identity_v1.py": "51b9c085e002f76ddf6b04f1d9ddde069997153a89dc0faf883dcab862b1c5f8",
+    "/archive/selected-read-upstream-failclosed-v5-cpu-qualification/libutils.so": "e4287923b8468a157eba6895d82c17a2f00105eeda32a6c9ec6755673b52231d",
+    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v2/library_resolution_preflight.py": "05af4b6e9545b18c70e00d79f5a6952573423daa2c1075ae3364f5f9e8b18eec",
+    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v2/run_pinned_paired_benchmark.py": "257df60f2c34e449294185020acc11731cd07f7b6af4a4374a8f16dd9496c1a7",
+    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v2/paired_preparation_runner_v5.py": "47405b481ffa564175935f08de3032bf5899c1fc0fda0512e45b69241502cd1b",
+    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v2/qualify_render.py": "1f3f2011753926d0985cf2ad31bb3afb2626d72c9e9eddaa1b72a7dfc9cf7b9a",
+    "/work/takeover/scheduler/failclosed-v5-final-source-cpu-benchmark-v2/audit_qualification_ledger.py": "cf19ae7b026a39828d542f5e1de443982fd22af08d2d50b75c5cc7755ce4b384"
+  },
+  "candidate_audit_source": "/archive/selected-read-v5-optin-integration-qualification-v2-source/audit_qualification_ledger.py"
+}

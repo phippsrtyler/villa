@@ -1,0 +1,8 @@
+{
+  "status": "PASS_LOCAL_V5_PACKET_STRUCTURE_AND_LOCAL_PINS; NATIVE_LINKER_PREFLIGHT_AND_SOURCE_PINS_PENDING",
+  "packet_sha256": "4e7a329d1110ce96c0bdf7cd19033c756bbb342ee3c420a74fca9f9efc3bbe60",
+  "descriptor_template_sha256": "b154ee804edcd7f3cd0fb5b068ba231c9383c08fbd168204dda067f56ac1c416",
+  "launch_authorized": false,
+  "submitted": false,
+  "native_preflight": "not run from this Windows workspace; exact renderer/lib linker check remains a launch gate"
+}

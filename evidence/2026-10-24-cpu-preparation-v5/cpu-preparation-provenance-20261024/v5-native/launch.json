@@ -1,0 +1,9 @@
+{
+  "id": "selected-read-upstream-failclosed-v5-cpu-qualification",
+  "digest": "694ca2a6bc85a81cb286a8d397326999f333f38f6afe0a4d8232685efc9d7154",
+  "worker": "linux-cpu",
+  "started": 1792864721.2323198,
+  "validated": false,
+  "returncode": null,
+  "pid": 4124415
+}

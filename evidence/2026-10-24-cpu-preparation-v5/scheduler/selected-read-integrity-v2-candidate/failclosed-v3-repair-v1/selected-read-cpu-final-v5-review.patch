@@ -1,0 +1,467 @@
+diff --git a/volume-cartographer/CMakeLists.txt b/volume-cartographer/CMakeLists.txt
+index 485069c..3c97554 100644
+--- a/volume-cartographer/CMakeLists.txt
++++ b/volume-cartographer/CMakeLists.txt
+@@ -905,6 +905,7 @@ if(VC_TESTING)
+     endfunction()
+ 
+     enable_testing()
++    add_subdirectory(utils/tests)
+     add_subdirectory(core/test)
+     add_subdirectory(apps/VC3D/agent_bridge/test)
+     add_subdirectory(apps/VC3D/test)
+@@ -921,6 +922,7 @@ if(VC_TESTING)
+ 
+     set(_vc_actual_ctests)
+     foreach(_test_dir
++            "${CMAKE_SOURCE_DIR}/utils/tests"
+             "${CMAKE_SOURCE_DIR}/core/test"
+             "${CMAKE_SOURCE_DIR}/apps/VC3D/agent_bridge/test"
+             "${CMAKE_SOURCE_DIR}/apps/VC3D/test")
+diff --git a/volume-cartographer/utils/CMakeLists.txt b/volume-cartographer/utils/CMakeLists.txt
+index dca95f9..752b8e2 100644
+--- a/volume-cartographer/utils/CMakeLists.txt
++++ b/volume-cartographer/utils/CMakeLists.txt
+@@ -1,6 +1,7 @@
+ find_package(Qt6 REQUIRED COMPONENTS Core)
++find_package(OpenSSL REQUIRED COMPONENTS Crypto)
+ add_library(utils src/zarr.cpp src/Json.cpp src/aws_auth.cpp src/http_fetch.cpp src/sftp_fetch.cpp)
+-target_link_libraries(utils PRIVATE Qt6::Core)
++target_link_libraries(utils PRIVATE Qt6::Core OpenSSL::Crypto)
+ target_include_directories(utils PUBLIC
+     ${CMAKE_CURRENT_SOURCE_DIR}/include
+ )
+diff --git a/volume-cartographer/utils/VERIFIED_CT_READS.md b/volume-cartographer/utils/VERIFIED_CT_READS.md
+new file mode 100644
+index 0000000..1493110
+--- /dev/null
++++ b/volume-cartographer/utils/VERIFIED_CT_READS.md
+@@ -0,0 +1,17 @@
++# Draft opt-in verification of CT reads
++
++This CPU-only opt-in draft targets Villa base `417e17689029434fa1572efe20a3e7a9bfc79be4`. It leaves the default read path unchanged. Production activation requires a caller-side ledger acceptance gate and review of the exact application integration.
++
++Repeated whole-volume verification of a restored CT dataset dominated preparation of small real scroll crops. The optional reader verifies the same owned compressed bytes returned to the decoder, using a complete immutable manifest. With no opt-in environment the existing read path remains unchanged. OpenSSL Crypto supplies SHA256; no custom digest implementation is introduced.
++
++Set all three environment variables together: `VC_VERIFIED_CT_MANIFEST`, `VC_VERIFIED_CT_MANIFEST_SHA256`, and a fresh owned `VC_VERIFIED_CT_LEDGER`. The manifest schema is `verified-ct-read-manifest-v1`, with canonical `volume_root`, complete `objects` records containing `key`, `absent`, `bytes`, and `sha256`, and `max_chunk_bytes` in the range 1 byte through 32 MiB. The retained CT manifest declares a 2 MiB limit and its largest present chunk is 2 MiB; the compiled 32 MiB ceiling gives 16x headroom while bounding the per-read buffer allocation. This is a CT-specific bound, not a promise to accept arbitrarily large Zarr chunks. Explicit absence is separate from a missing/unlisted object. Protected shard and mmap entry points reject rather than bypass verification. The caller must keep the volume tree immutable throughout guarded reads: the guard rejects symlinks it observes and verifies the digest of the exact owned bytes it returns, but does not claim race-free filesystem confinement against concurrent path replacement. With `VC_VERIFIED_CT_MANIFEST` enabled, Store-backed Zarr access is rejected process-wide: Store open overloads do not yet have a canonical array root to check, so the restriction also applies to unrelated Store roots. This opt-in supports the guarded filesystem Zarr2 G0 path; remove all three opt-in variables to use stock Store access. This is not universal I/O interception.
++
++A renderer may catch decoding exceptions and zero-fill. Therefore a production caller MUST audit the ledger before accepting science: exact INITIALIZED manifest binding, nonzero VERIFIED read coverage, no REJECTED event, and bounded complete evidence. Mandatory evidence infrastructure failures terminate with code86 without a core dump. The standalone library cannot make an application-level acceptance decision on a swallowed read failure.
++
++## Tests and real-data evidence
++
++Enable the existing CMake `VC_TESTING` option and run `ctest -R verified_ct_read --output-on-failure` after building `test_verified_ct_read`. Tests exercise actual public Zarr API calls, exact bytes, mutation/size/absence, forbidden bypasses, mandatory evidence failures, both Store-open overloads with a real unrelated `FileSystemStore`, and stock Store reads in children with all opt-in variables removed. The earlier focused central CMake/CTest run passed the original fixture (1/1 CTest, 18 public-API cases) against the separately qualified imported library; it did not run this revised fixture or configure the full repository. Re-run the revised CPU-only fixture in the PR build environment. macOS/arm64 are not qualified.
++
++Earlier real-data qualification and nine-pair results belong to older source revisions and are not evidence for this final combined patch. The final-source CPU-only comparison used three AB/BA/AB pairs on two fixed crops; all six arms passed exact complete-tree comparison. Median stock/candidate times were 52.690/5.052 seconds (27×180×1060; 10.43×) and 54.203/5.558 seconds (27×180×4640; 9.75×); summed two-crop pair ratios were 9.64×, 9.71×, and 10.08×. These are fixed-workload CPU preparation observations, not GPU, full-pipeline, or universal speedups. PawPad services and a production controller/validator were active during measurement, limiting timing precision. The final-source-v2 summary, receipt, and linker proof are retained separately in the takeover evidence workspace.
++
++The two-crop CPU process sum was about59Ã¢â‚¬â€œ64 seconds stock and10.6Ã¢â‚¬â€œ11.1 seconds candidate in a warm-cache test. These are CPU component observations, not GPU/full-pipeline speedups. One RTX-labelled CPU repetition overlapped cross-host archive reads. Native correctness runs were nonisolated, and strict RTX performance ownership remains unresolved. Transfer, queue wait and unavailable source-pin preflight clocks are not silently summed into an invented end-to-end benchmark. No production verification was removed by this draft.
+diff --git a/volume-cartographer/utils/src/verified_chunk_read.hpp b/volume-cartographer/utils/src/verified_chunk_read.hpp
+new file mode 100644
+index 0000000..507e712
+--- /dev/null
++++ b/volume-cartographer/utils/src/verified_chunk_read.hpp
+@@ -0,0 +1,86 @@
++#pragma once
++// Prospective guard for utils::ZarrArray::read_raw, NOT a universal I/O hook.
++#include <cstddef>
++#include <filesystem>
++#include <fstream>
++#include <functional>
++#include <map>
++#include <optional>
++#include <stdexcept>
++#include <string>
++#include <vector>
++
++namespace selected_read {
++using Bytes = std::vector<std::byte>;
++struct Expected { bool absent; std::size_t size; std::string sha256; };
++class Guard {
++ static constexpr std::size_t kMaxVerifiedChunkBytes = 32u * 1024u * 1024u;
++ std::filesystem::path volume_, group_;
++ std::map<std::string, Expected> manifest_;
++ std::function<std::string(const Bytes&)> digest_;
++ std::size_t max_bytes_;
++ [[noreturn]] static void fail(const char* why) { throw std::runtime_error(why); }
++public:
++ Guard(std::filesystem::path volume, std::map<std::string, Expected> manifest,
++       std::function<std::string(const Bytes&)> digest, std::size_t max_bytes)
++ : volume_(std::filesystem::canonical(volume)), group_(volume_/"0"),
++   manifest_(std::move(manifest)), digest_(std::move(digest)), max_bytes_(max_bytes) {
++  // The retained CT manifest uses 2 MiB chunks. A 32 MiB hard ceiling leaves
++  // 16x headroom while keeping malformed manifests from requesting unbounded
++  // per-read allocations. The schema is for this guarded CT path, not arbitrary
++  // user-selected Zarr chunk sizes.
++  if (!max_bytes_ || max_bytes_ > kMaxVerifiedChunkBytes || !digest_) fail("guard configuration");
++  for (const auto& [k,v]:manifest_) {
++   std::filesystem::path p(k);
++   if (k.empty() || p.is_absolute() || p.lexically_normal()!=p) fail("manifest key");
++   for (auto& part:p) if (part==".." || part==".") fail("manifest escape");
++   if (v.absent ? (v.size!=0 || !v.sha256.empty()) :
++       (v.size>max_bytes_ || v.sha256.size()!=64 ||
++        v.sha256.find_first_not_of("0123456789abcdef")!=std::string::npos)) fail("manifest value");
++  }
++ }
++ bool protects(const std::filesystem::path& root) const {
++  auto r=std::filesystem::weakly_canonical(root);
++  auto rel=r.lexically_relative(volume_);
++  return r==volume_ || (!rel.empty() && *rel.begin()!="..");
++ }
++ // Call this on EVERY read_raw before choosing store_/filesystem branches.
++ // Returns the exact compressed byte vector subsequently given to the decoder.
++ std::optional<Bytes> read(const std::filesystem::path& root, const std::string& key,
++                           bool sharded=false, bool alternate_store=false) const {
++  if (!protects(root)) fail("guard called outside protected volume");
++  if (sharded || alternate_store) fail("unsupported protected storage bypass");
++  if (std::filesystem::weakly_canonical(root)!=group_) fail("unapproved CT level");
++  std::filesystem::path relative(key);
++  if (key.empty() || relative.is_absolute() || relative.lexically_normal()!=relative) fail("read key");
++  for (auto& part:relative) if (part==".." || part==".") fail("read escape");
++  auto row=manifest_.find(key);
++  if (row==manifest_.end()) fail("unlisted CT read");
++  auto file=group_/relative;
++  // Reject symlink components observed before open. The caller must keep the
++  // input tree immutable for the guarded operation; the digest authenticates
++  // the exact owned bytes returned even if the filesystem path is later changed.
++  auto cursor=group_;
++  for (auto& part:relative) { cursor/=part; if (std::filesystem::is_symlink(std::filesystem::symlink_status(cursor))) fail("chunk symlink"); }
++  const auto& expected=row->second;
++  if (expected.absent) {
++   if (std::filesystem::exists(file)) fail("source-absent chunk appeared");
++   return std::nullopt;
++  }
++  if (!std::filesystem::is_regular_file(file)) fail("present chunk missing/nonregular");
++  if (std::filesystem::file_size(file)!=expected.size) fail("chunk size mismatch");
++  std::ifstream stream(file,std::ios::binary);
++  if (!stream) fail("chunk open");
++  Bytes bytes(expected.size);
++  if (expected.size && !stream.read(reinterpret_cast<char*>(bytes.data()),bytes.size())) fail("chunk short read");
++  char extra;
++  if (stream.get(extra) || !stream.eof()) fail("chunk changed/error during read");
++  if (digest_(bytes)!=expected.sha256) fail("chunk SHA256 mismatch");
++  return bytes; // immutable owned snapshot; no hash-then-reopen window.
++ }
++ // Must be called at entry of mmap/shard/alternate-store APIs, before any I/O.
++ void reject_bypass(const std::filesystem::path& root) const {
++  if (protects(root)) fail("protected bypass API forbidden");
++ }
++};
++}
+diff --git a/volume-cartographer/utils/src/verified_chunk_runtime.hpp b/volume-cartographer/utils/src/verified_chunk_runtime.hpp
+new file mode 100644
+index 0000000..0521be6
+--- /dev/null
++++ b/volume-cartographer/utils/src/verified_chunk_runtime.hpp
+@@ -0,0 +1,86 @@
++#pragma once
++#include "verified_chunk_read.hpp"
++#include <cstdlib>
++#include <mutex>
++#include <memory>
++#include <cstdio>
++extern "C" unsigned char* SHA256(const unsigned char*,std::size_t,unsigned char*);
++namespace selected_read {
++// Opt-in integrity evidence is mandatory. A decoder may catch C++ exceptions
++// and substitute zeroes, so evidence infrastructure failures must not unwind.
++[[noreturn]] inline void evidence_fatal() noexcept {
++ std::fputs("selected-read mandatory evidence failure\n",stderr);
++ std::fflush(stderr);std::_Exit(86);
++}
++inline std::string sha256(const Bytes& b) {
++ unsigned char digest[32];SHA256(reinterpret_cast<const unsigned char*>(b.data()),b.size(),digest);
++ const char* hex="0123456789abcdef";std::string out;
++ for(auto x:digest){out+=hex[x>>4];out+=hex[x&15];}return out;
++}
++class Runtime {
++ std::unique_ptr<Guard> guard_;
++ std::filesystem::path ledger_;
++ std::mutex ledger_mutex_;
++ std::size_t events_=0;
++ void event(const std::string& status,const std::string& key,std::size_t size) {
++  try {
++  std::lock_guard<std::mutex> lock(ledger_mutex_);
++  if(++events_>65536)throw std::runtime_error("bounded verification ledger exceeded");
++  utils::Json e=utils::Json::object();e["status"]=status;e["key"]=key;e["bytes"]=uint64_t(size);
++  std::ofstream f(ledger_,std::ios::app);f<<e.dump()<<'\n';f.flush();
++  if(!f)throw std::runtime_error("verification ledger write");
++  } catch(...) { evidence_fatal(); }
++ }
++public:
++ Runtime() {
++  const char* manifest=std::getenv("VC_VERIFIED_CT_MANIFEST");
++  const char* expected=std::getenv("VC_VERIFIED_CT_MANIFEST_SHA256");
++  const char* ledger=std::getenv("VC_VERIFIED_CT_LEDGER");
++  if(!manifest && !expected && !ledger) return; // Stock mode only when every opt-in variable is absent.
++  if(!manifest || !expected || !ledger) evidence_fatal();
++  std::ifstream f(manifest,std::ios::binary|std::ios::ate);
++  auto size=f.tellg();if(!f || size<0 || size>32*1024*1024)throw std::runtime_error("bounded manifest");
++  Bytes bytes(static_cast<std::size_t>(size));f.seekg(0);
++  if(size && !f.read(reinterpret_cast<char*>(bytes.data()),size))throw std::runtime_error("manifest read");
++  if(sha256(bytes)!=expected)throw std::runtime_error("manifest SHA256");
++  auto j=utils::Json::parse(std::string(reinterpret_cast<char*>(bytes.data()),bytes.size()));
++  if(j.at("schema").get_string()!="verified-ct-read-manifest-v1")throw std::runtime_error("manifest schema");
++  std::map<std::string,Expected> records;
++  for(const auto& r:j.at("objects")) {
++   auto key=r.at("key").get_string();
++   if(!records.emplace(key,Expected{r.at("absent").get_bool(),r.at("bytes").get_size_t(),r.at("sha256").get_string()}).second)
++    throw std::runtime_error("duplicate CT manifest key");
++  }
++  if(records.empty())throw std::runtime_error("empty CT manifest");
++  ledger_=ledger;
++  guard_=std::make_unique<Guard>(j.at("volume_root").get_string(),std::move(records),sha256,j.at("max_chunk_bytes").get_size_t());
++  event("INITIALIZED",expected,0);
++ }
++ bool protects(const std::filesystem::path& root)const{return guard_ && guard_->protects(root);}
++ void reject_store() {
++  if(guard_){try{event("REJECTED_STORE","alternate-store",0);}catch(...){};throw std::runtime_error("alternate store forbidden in guarded qualification");}
++ }
++ std::optional<Bytes> read(const std::filesystem::path& root,const std::string& key,bool shard,bool store) {
++  try {
++   auto bytes=guard_->read(root,key,shard,store);
++   event(bytes?"VERIFIED_PRESENT":"EXPLICIT_ABSENT",key,bytes?bytes->size():0);
++   return bytes;
++  } catch(...) {
++   // Preserve the primary verification failure if evidence storage also fails.
++   try{event("REJECTED",key,0);}catch(...){}
++   throw;
++  }
++ }
++ void reject(const std::filesystem::path& root) {
++  if(protects(root)){try{event("REJECTED_BYPASS",root.string(),0);}catch(...){};guard_->reject_bypass(root);}
++ }
++};
++inline Runtime& runtime(){
++ static Runtime value=[]() -> Runtime {
++  // A missing env retains stock behavior; an applied but invalid opt-in cannot
++  // silently fall back after a renderer catches initialization exceptions.
++  try {return Runtime();} catch(...) {evidence_fatal();}
++ }();
++ return value;
++}
++}
+diff --git a/volume-cartographer/utils/src/zarr.cpp b/volume-cartographer/utils/src/zarr.cpp
+index 412a898..7661419 100644
+--- a/volume-cartographer/utils/src/zarr.cpp
++++ b/volume-cartographer/utils/src/zarr.cpp
+@@ -1,5 +1,6 @@
+ #include "utils/zarr.hpp"
+ #include "utils/sftp_fetch.hpp"
++#include "verified_chunk_runtime.hpp"
+ 
+ #include <charconv>
+ #include <cmath>
+@@ -1685,6 +1686,7 @@ ZarrArray ZarrArray::create(const std::filesystem::path& path,
+ 
+ ZarrArray ZarrArray::open(std::shared_ptr<Store> store, const std::string& array_key,
+                           Codec codec) {
++    selected_read::runtime().reject_store();
+     // Build store key without leading "/" when array_key is empty.
+     auto store_key = [&](const std::string& name) -> std::string {
+         return array_key.empty() ? name : array_key + "/" + name;
+@@ -1704,6 +1706,7 @@ ZarrArray ZarrArray::open(std::shared_ptr<Store> store, const std::string& array
+ 
+ ZarrArray ZarrArray::open(std::shared_ptr<Store> store, const std::string& array_key,
+                           CodecRegistry registry) {
++    selected_read::runtime().reject_store();
+     auto store_key = [&](const std::string& name) -> std::string {
+         return array_key.empty() ? name : array_key + "/" + name;
+     };
+@@ -2045,6 +2048,7 @@ bool ZarrArray::direct_chunk_payload_is_decoded_bytes() const noexcept {
+ std::optional<std::vector<std::byte>>
+ ZarrArray::read_inner_chunk(std::span<const std::size_t> shard_indices,
+                             std::span<const std::size_t> inner_indices) const {
++    selected_read::runtime().reject(root_);
+     if (!is_sharded())
+         throw std::runtime_error("zarr: not a sharded array");
+ 
+@@ -2255,6 +2259,7 @@ void ZarrArray::set_shard_entry_locked(const std::filesystem::path& p, std::size
+ 
+ std::optional<detail::ShardIndexEntry>
+ ZarrArray::read_shard_entry(const std::filesystem::path& p, std::size_t linear) const {
++    selected_read::runtime().reject(root_);
+     // The trailing index moves on every update, so its position (the file
+     // size) is taken under the lock that guards the entry read, from the
+     // same descriptor.
+@@ -2390,6 +2395,9 @@ std::string ZarrArray::chunk_key_v3(std::span<const std::size_t> idx) const {
+ 
+ std::optional<std::vector<std::byte>>
+ ZarrArray::read_raw(const std::string& key) const {
++    auto& verifier = selected_read::runtime();
++    if (store_) verifier.reject_store();
++    if (verifier.protects(root_)) return verifier.read(root_, key, is_sharded(), bool(store_));
+     if (store_) {
+         auto full_key = array_key_.empty() ? key : array_key_ + "/" + key;
+         return store_->get_if_exists(full_key);
+@@ -2414,6 +2422,7 @@ void ZarrArray::write_chunk_raw(std::span<const std::size_t> idx,
+ 
+ std::optional<std::vector<std::byte>>
+ ZarrArray::read_inner_chunk_from_shard(std::span<const std::size_t> chunk_indices) const {
++    selected_read::runtime().reject(root_);
+     if (!is_sharded()) return std::nullopt;
+     const auto ndim = meta_.ndim();
+ 
+@@ -2510,6 +2519,7 @@ ZarrArray::read_inner_chunk_from_shard(std::span<const std::size_t> chunk_indice
+ 
+ std::optional<ShardBytes>
+ ZarrArray::read_whole_shard(std::span<const std::size_t> chunk_indices) const {
++    selected_read::runtime().reject(root_);
+     if (!is_sharded()) return std::nullopt;
+     const auto ndim = meta_.ndim();
+     std::vector<std::size_t> shard_idx(ndim);
+diff --git a/volume-cartographer/utils/tests/CMakeLists.txt b/volume-cartographer/utils/tests/CMakeLists.txt
+new file mode 100644
+index 0000000..fce419b
+--- /dev/null
++++ b/volume-cartographer/utils/tests/CMakeLists.txt
+@@ -0,0 +1,11 @@
++find_package(Python3 REQUIRED COMPONENTS Interpreter)
++add_executable(test_verified_ct_read verified_ct_read.cpp)
++target_link_libraries(test_verified_ct_read PRIVATE utils)
++set_target_properties(test_verified_ct_read PROPERTIES
++    OUTPUT_NAME integrated_reader_fixture
++    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/verified-ct-read")
++vc_register_test_target(test_verified_ct_read)
++add_test(NAME verified_ct_read
++    COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/verified_ct_read.py
++            ${CMAKE_CURRENT_BINARY_DIR}/verified-ct-read)
++vc_register_ctest(verified_ct_read test_verified_ct_read)
+diff --git a/volume-cartographer/utils/tests/verified_ct_read.cpp b/volume-cartographer/utils/tests/verified_ct_read.cpp
+new file mode 100644
+index 0000000..ee2fff6
+--- /dev/null
++++ b/volume-cartographer/utils/tests/verified_ct_read.cpp
+@@ -0,0 +1,36 @@
++#include "utils/zarr.hpp"
++#include <iostream>
++int main(int argc,char**argv) {
++ if(argc!=3)return 2;
++ try {
++  std::string mode=argv[2];
++  if(mode=="store" || mode=="store_registry" || mode=="store_stock" || mode=="store_registry_stock") {
++   auto store=std::make_shared<utils::FileSystemStore>(std::filesystem::path(argv[1]));
++   auto array = (mode=="store_registry" || mode=="store_registry_stock")
++       ? utils::ZarrArray::open(store,"0",utils::ZarrArray::CodecRegistry{})
++       : utils::ZarrArray::open(store,"0",utils::ZarrArray::Codec{});
++   if(mode=="store_stock" || mode=="store_registry_stock") {
++    std::array<std::size_t,3> index{0,0,0};
++    auto bytes=array.read_chunk_encoded(index);
++    if(!bytes || std::string(reinterpret_cast<const char*>(bytes->data()),bytes->size())!="abc") return 4;
++    std::cout<<"abc\n";return 0;
++   }
++   std::cerr<<"unexpected Store open accepted\n";return 3;
++  }
++  auto array=utils::ZarrArray::open(std::filesystem::path(argv[1]),utils::ZarrArray::Codec{});
++  std::array<std::size_t,3> index{0,0,0};
++  if(mode=="shard") {array.read_whole_shard(index);std::cerr<<"unexpected bypass accepted\n";return 3;}
++  auto bytes=mode=="storage"?array.read_storage_object(index):array.read_chunk_encoded(index);
++  if(mode=="ledgerfail") {
++   auto ledger=std::filesystem::path(std::getenv("VC_VERIFIED_CT_LEDGER"));
++   std::filesystem::remove(ledger);std::filesystem::create_directory(ledger);
++   array.read_chunk_encoded(index);return 3;
++  }
++  if(mode=="eventlimit") {
++   for(int n=0;n<65536;++n)array.read_chunk_encoded(index);
++   return 3;
++  }
++  if(!bytes){std::cout<<"EXPLICIT_ABSENT\n";return 0;}
++  std::cout<<std::string(reinterpret_cast<const char*>(bytes->data()),bytes->size())<<'\n';
++ }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return std::string(argv[2])=="swallow"?0:7;}
++}
+diff --git a/volume-cartographer/utils/tests/verified_ct_read.py b/volume-cartographer/utils/tests/verified_ct_read.py
+new file mode 100644
+index 0000000..c1845ab
+--- /dev/null
++++ b/volume-cartographer/utils/tests/verified_ct_read.py
+@@ -0,0 +1,93 @@
++"""CPU-only public Zarr API tests of the actual newly linked guarded library."""
++import hashlib,json,os,pathlib,subprocess,sys,tempfile
++def main():
++ out=pathlib.Path(sys.argv[1]);exe=out/'integrated_reader_fixture';temporary=tempfile.TemporaryDirectory(prefix='integrated-fixtures-',dir=out);tests=pathlib.Path(temporary.name)
++ cases=[('encoded','abc',False,False,'abc'),('storage','abc',False,False,'abc'),('encoded','abd',False,False,'SHA256 mismatch'),('encoded','abcd',False,False,'size mismatch'),('encoded',None,False,False,'missing/nonregular'),('encoded',None,True,False,'EXPLICIT_ABSENT'),('encoded','abc',True,False,'source-absent chunk appeared'),('encoded',None,False,True,'unlisted CT read'),('shard','abc',False,False,'bypass API forbidden'),('store','abc',False,False,'alternate store forbidden'),('store_registry','abc',False,False,'alternate store forbidden'),('level','abc',False,False,'unapproved CT level')]
++ rows=[]
++ metadata={'zarr_format':2,'shape':[1,1,3],'chunks':[1,1,3],'dtype':'|u1','compressor':None,'filters':None,'order':'C','fill_value':0,'dimension_separator':'/'}
++ for number,(mode,data,absent,unlisted,expected) in enumerate(cases):
++  root=tests/str(number);volume=root/'volume';group=volume/('1' if mode=='level' else '0');group.mkdir(parents=True)
++  (volume/'0').mkdir(exist_ok=True);(group/'.zarray').write_text(json.dumps(metadata))
++  if data is not None:
++   chunk=group/'0/0/0';chunk.parent.mkdir(parents=True);chunk.write_bytes(data.encode())
++  row={'key':'0/0/0','absent':absent,'bytes':0 if absent else 3,'sha256':'' if absent else hashlib.sha256(b'abc').hexdigest()}
++  if unlisted:row['key']='9/9/9'
++  manifest={'schema':'verified-ct-read-manifest-v1','volume_root':str(volume),'max_chunk_bytes':1024,'objects':[row]}
++  path=root/'manifest.json';path.write_text(json.dumps(manifest));ledger=root/'events.jsonl'
++  env=dict(os.environ,VC_VERIFIED_CT_MANIFEST=str(path),VC_VERIFIED_CT_MANIFEST_SHA256=hashlib.sha256(path.read_bytes()).hexdigest(),VC_VERIFIED_CT_LEDGER=str(ledger))
++  store_root=root/'unrelated-store'
++  store_array=store_root/'0';store_array.mkdir(parents=True)
++  (store_array/'.zarray').write_text(json.dumps(metadata))
++  store_chunk=store_array/'0/0/0';store_chunk.parent.mkdir(parents=True);store_chunk.write_bytes(b'abc')
++  argument=store_root if mode in ('store','store_registry') else group
++  r=subprocess.run([str(exe),str(argument),'encoded' if mode=='level' else mode],env=env,text=True,capture_output=True,timeout=15)
++  success=expected in ('abc','EXPLICIT_ABSENT')
++  assert r.returncode==(0 if success else 7),(number,r.returncode,r.stderr)
++  assert expected in (r.stdout if success else r.stderr),(number,expected,r.stdout,r.stderr)
++  events=[json.loads(line) for line in ledger.read_text().splitlines()]
++  assert events[0]['status']=='INITIALIZED'
++  if mode in ('store','store_registry'):
++   assert any(e['status']=='REJECTED_STORE' and e['key']=='alternate-store' for e in events),(mode,events)
++  rows.append({'case':number,'mode':mode,'expected':expected,'returncode':r.returncode,'events':events})
++ # These subprocesses catch every std::exception in the public-API fixture.
++ # Mandatory evidence failures must still terminate nonzero, not become fills.
++ base_env=dict(env);base_env['VC_VERIFIED_CT_MANIFEST_SHA256']=hashlib.sha256(path.read_bytes()).hexdigest()
++ # Use the first valid present fixture for runtime evidence tests.
++ root=tests/'0';group=root/'volume/0';path=root/'manifest.json'
++ base_env.update(VC_VERIFIED_CT_MANIFEST=str(path),VC_VERIFIED_CT_MANIFEST_SHA256=hashlib.sha256(path.read_bytes()).hexdigest())
++ for name,mode in [('init_write','encoded'),('read_write','ledgerfail'),('event_cap','eventlimit'),('bad_sha','encoded'),('incomplete','encoded')]:
++  ledger=tests/('failure-'+name);case_env=dict(base_env,VC_VERIFIED_CT_LEDGER=str(ledger))
++  if name=='init_write':ledger.mkdir()
++  if name=='bad_sha':case_env['VC_VERIFIED_CT_MANIFEST_SHA256']='0'*64
++  if name=='incomplete':case_env.pop('VC_VERIFIED_CT_LEDGER')
++  r=subprocess.run([str(exe),str(group),mode],env=case_env,text=True,capture_output=True,timeout=30)
++  assert r.returncode==86,(name,r.returncode,r.stdout,r.stderr)
++  assert 'mandatory evidence failure' in r.stderr
++  rows.append({'case':name,'returncode':r.returncode})
++ # Simulate a renderer catching corrupt-read errors: rc0 is insufficient;
++ # durable REJECTED evidence remains mandatory for the wrapper to reject it.
++ corrupt=tests/'2';ledger=corrupt/'swallowed.jsonl';path=corrupt/'manifest.json'
++ case_env=dict(base_env,VC_VERIFIED_CT_MANIFEST=str(path),VC_VERIFIED_CT_MANIFEST_SHA256=hashlib.sha256(path.read_bytes()).hexdigest(),VC_VERIFIED_CT_LEDGER=str(ledger))
++ r=subprocess.run([str(exe),str(corrupt/'volume/0'),'swallow'],env=case_env,capture_output=True,timeout=15)
++ assert r.returncode==0 and any(json.loads(x)['status']=='REJECTED' for x in ledger.read_text().splitlines())
++ rows.append({'case':'swallowed_read_failure_has_REJECTED','returncode':r.returncode})
++ # Every non-empty proper subset of the opt-in tuple is a fatal configuration error.
++ all_keys=('VC_VERIFIED_CT_MANIFEST','VC_VERIFIED_CT_MANIFEST_SHA256','VC_VERIFIED_CT_LEDGER')
++ values={'VC_VERIFIED_CT_MANIFEST':str(path),'VC_VERIFIED_CT_MANIFEST_SHA256':hashlib.sha256(path.read_bytes()).hexdigest()}
++ for mask in (1,2,3,4,5,6):
++  case_env=dict(base_env)
++  for key in all_keys:case_env.pop(key,None)
++  values['VC_VERIFIED_CT_LEDGER']=str(tests/('partial-env-'+str(mask)+'.jsonl'))
++  for bit,key in enumerate(all_keys):
++   if mask & (1<<bit):case_env[key]=values[key]
++  r=subprocess.run([str(exe),str(group),'encoded'],env=case_env,capture_output=True,timeout=15)
++  assert r.returncode==86 and b'mandatory evidence failure' in r.stderr,(mask,r.returncode,r.stdout,r.stderr)
++  rows.append({'case':'partial_opt_in_mask_'+str(mask),'returncode':r.returncode})
++ plain=dict(os.environ)
++ for key in ('VC_VERIFIED_CT_MANIFEST','VC_VERIFIED_CT_MANIFEST_SHA256','VC_VERIFIED_CT_LEDGER'):plain.pop(key,None)
++ r=subprocess.run([str(exe),str(group),'encoded'],env=plain,capture_output=True,timeout=15)
++ assert r.returncode==0 and b'abc' in r.stdout
++ rows.append({'case':'absent_opt_in_stock','returncode':r.returncode})
++ # A valid digest over a malformed document must still fail closed at init.
++ valid=json.loads(path.read_text())
++ malformed_cases=[]
++ malformed_cases.append(('malformed_json',b'{'))
++ bad_schema=dict(valid);bad_schema['schema']='unknown-v9';malformed_cases.append(('wrong_schema',json.dumps(bad_schema).encode()))
++ bad_type=dict(valid);bad_type['objects']=[dict(valid['objects'][0],absent=0)];malformed_cases.append(('wrong_field_type',json.dumps(bad_type).encode()))
++ bad_key=dict(valid);bad_key['objects']=[dict(valid['objects'][0],key='../outside')];malformed_cases.append(('traversal_key',json.dumps(bad_key).encode()))
++ duplicate=dict(valid);duplicate['objects']=valid['objects']*2;malformed_cases.append(('duplicate_key',json.dumps(duplicate).encode()))
++ bad_digest=dict(valid);bad_digest['objects']=[dict(valid['objects'][0],sha256='xyz')];malformed_cases.append(('malformed_expected_digest',json.dumps(bad_digest).encode()))
++ over_limit=dict(valid);over_limit['max_chunk_bytes']=32*1024*1024+1;malformed_cases.append(('configured_limit_over_hard_cap',json.dumps(over_limit).encode()))
++ over_row=dict(valid);over_row['max_chunk_bytes']=32*1024*1024;over_row['objects']=[dict(valid['objects'][0],bytes=32*1024*1024+1)];malformed_cases.append(('row_over_hard_cap',json.dumps(over_row).encode()))
++ for name,raw in malformed_cases:
++  mpath=tests/(name+'.json');mpath.write_bytes(raw);case_env=dict(base_env,VC_VERIFIED_CT_MANIFEST=str(mpath),VC_VERIFIED_CT_MANIFEST_SHA256=hashlib.sha256(raw).hexdigest(),VC_VERIFIED_CT_LEDGER=str(tests/(name+'.jsonl')))
++  r=subprocess.run([str(exe),str(group),'encoded'],env=case_env,text=True,capture_output=True,timeout=15)
++  assert r.returncode==86 and 'mandatory evidence failure' in r.stderr,(name,r.returncode,r.stdout,r.stderr)
++  rows.append({'case':'malformed_manifest_'+name,'returncode':r.returncode})
++ for mode in ('store_stock','store_registry_stock'):
++  r=subprocess.run([str(exe),str(root/'unrelated-store'),mode],env=plain,text=True,capture_output=True,timeout=15)
++  assert r.returncode==0 and r.stdout.strip()=='abc',(mode,r.returncode,r.stdout,r.stderr)
++  rows.append({'case':mode+'_works_without_opt_in','returncode':r.returncode})
++ report={'status':'PASS_INTEGRATED_GUARDED_PUBLIC_ZARR_API','cases':rows,'scope':'Actual guarded libutils public API; no renderer or GPU; exact renderer I/O reconciliation remains required.'}
++ (out/'integrated-fixture-report.json').write_text(json.dumps(report,indent=2));print(json.dumps({'status':report['status'],'cases':len(rows)}))
++if __name__=='__main__':main()
